@@ -15,15 +15,17 @@ git clone git@github.com:Scout-NU/scout-presents-site.git
 ```bash
 cd scout-presents-site
 ```
+
 3. Set up environment variables
 
-In the project directory is a file called `env_example`. This holds all of the necessary environment variables to create this project, including the Prismic access token.
+In the project directory is a file called `.env.sample`. This holds all of the necessary environment variables to create this project, including the Prismic access token.
 
 Copy the file and add the values to the variables.
 
-```sh
-cp env_example .env.development
+```bash
+cp .env.sample .env.development
 ```
+
 ```sh
 # In .env
 GATSBY_PRISMIC_REPO_NAME=XXXXXXXXXXXXXX
@@ -47,6 +49,7 @@ npm start
 It will likely start on http://localhost:8000. When you make changes, the site will auto-refresh and display your changes.
 
 ### Updating the CMS
+
 Thanks to Gatsby's intense caching, when updating any data in the Prismic CMS interface, you must do two things for the updated content to show up in your GraphQL queries:
 
 1. **Publish the document on Prismic!** This won't affect any current builds of the marketing site, as all of the data is queried and cached on build of the site.
@@ -54,6 +57,7 @@ Thanks to Gatsby's intense caching, when updating any data in the Prismic CMS in
 2. **Restart the development server!** Gatsby only grabs data from Prismic on build, so the server must be restarted to grab the new data.
 
 ### Deploying to Netlify
+
 To update the site, it needs to be deployed to Netlify. This can happen in a number of ways:
 
 **Manual Deploy** The Tech Director goes into Netlify and manually creates a new deploy.
@@ -70,7 +74,7 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     ├── node_modules
     ├── src
     ├── .gitignore
-    ├── env_example
+    ├── .env.sample
     ├── gatsby-config.js
     ├── package.json
     └── README.md
@@ -81,13 +85,13 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
-4.  **`env_example`**: This file holds all of the necessary environment variables to create this project.
+4.  **`.env.sample`**: This file holds all of the necessary environment variables to create this project.
 
 5.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
 
-6. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how yarn knows which packages to install for your project.
+6.  **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how yarn knows which packages to install for your project.
 
-7. **`README.md`**: A text file containing useful reference information about your project.
+7.  **`README.md`**: A text file containing useful reference information about your project.
 
 ## 🎓 Learning Gatsby
 
