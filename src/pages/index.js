@@ -1,10 +1,11 @@
-import * as React from 'react';
+import * as React from "react";
+import { Button, H1, H2 } from "../styles/styles";
 
 // styles
 const pageStyles = {
-  color: '#232129',
+  color: "#232129",
   padding: 96,
-  fontFamily: '-apple-system, Roboto, sans-serif, serif',
+  fontFamily: "-apple-system, Roboto, sans-serif, serif",
 };
 const headingStyles = {
   marginTop: 0,
@@ -12,21 +13,22 @@ const headingStyles = {
   maxWidth: 500,
 };
 const headingAccentStyles = {
-  color: '#663399',
+  color: "#663399",
 };
 
 const IndexPage = () => {
   return (
     <main style={pageStyles}>
       <title>Home Page</title>
-      <h1 style={headingStyles}>
+      <H1 style={headingStyles}>
         Hello, Scout Presents Team!!
         <br />
-        <span style={headingAccentStyles}>We have a site! </span>
+        <H2 style={headingAccentStyles}>We have a site! </H2>
         <span role="img" aria-label="Party popper emojis">
           🎉🎉🎉
         </span>
-      </h1>
+      </H1>
+      <Button>click here</Button>
     </main>
   );
 };

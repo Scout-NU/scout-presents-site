@@ -18,6 +18,7 @@ const fonts = {
 
 export const H1 = styled.h1`
   font-family: ${fonts.silkSerif};
+  text-transform: lowercase;
   font-size: 60px;
   font-style: semi-bold;
 `;
@@ -35,9 +36,11 @@ export const P = styled.p`
 `;
 
 export const Button = styled.button`
+  font-family: ${fonts.epilogue};
+  padding: 6px;
   color: ${DARK_PURPLE};
   border-radius: 7px;
-  border: 1px solid ${DARK_PURPLE};
+  border: 2px solid ${DARK_PURPLE};
   background-color: transparent;
   &:hover {
     background-color: ${DARK_PURPLE};
