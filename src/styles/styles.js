@@ -3,12 +3,14 @@ import styled from "styled-components";
 import "./styles.css";
 
 // Colors
-export const DARK_PURPLE = "#620052";
-export const LIGHT_PURPLE = "#ECE5F0";
-export const ORANGE = "#FFAE53";
-export const LIME = "#CBDE57";
-export const DARK_GREEN = "#032824";
-export const WHITE = "#FFFAF2";
+export const YELLOW = "#ECF955";
+export const GREEN = "#058855";
+export const PINK = "#E8A8CA";
+export const RED = "#DF4E20";
+export const ROYAL_BLUE = "#3C60DD";
+export const LIGHT_BLUE = "#13BCD7";
+export const BLACK = "#170E07";
+export const CREAM = "#FFFAF2";
 
 const fonts = {
   silkSerif: "Silk Serif",
@@ -38,12 +40,13 @@ export const P = styled.p`
 export const Button = styled.button`
   font-family: ${fonts.epilogue};
   padding: 6px;
-  color: ${DARK_PURPLE};
-  border-radius: 7px;
-  border: 2px solid ${DARK_PURPLE};
+  transform: skew(20deg);
+  color: ${ROYAL_BLUE};
+  border-radius: 4px;
+  border: 2px solid ${ROYAL_BLUE};
   background-color: transparent;
   &:hover {
-    background-color: ${DARK_PURPLE};
-    color: ${WHITE};
+    background-color: ${ROYAL_BLUE};
+    color: ${CREAM};
   }
 `;
