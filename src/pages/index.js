@@ -1,9 +1,19 @@
 import * as React from "react";
-import { Button, H1, H2 } from "../styles/styles";
+import {
+  PrimaryButton,
+  H1,
+  H2,
+  ROYAL_BLUE,
+  YELLOW,
+  BLACK,
+  SecondaryButton,
+  ButtonText,
+} from "../styles/styles";
 
 // styles
 const pageStyles = {
-  color: "#232129",
+  color: ROYAL_BLUE,
+  backgroundColor: BLACK,
   padding: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
 };
@@ -13,7 +23,7 @@ const headingStyles = {
   maxWidth: 500,
 };
 const headingAccentStyles = {
-  color: "#663399",
+  color: YELLOW,
 };
 
 const IndexPage = () => {
@@ -28,7 +38,10 @@ const IndexPage = () => {
           🎉🎉🎉
         </span>
       </H1>
-      <Button>click here</Button>
+      <PrimaryButton>
+        <ButtonText>submit work</ButtonText>
+      </PrimaryButton>
+      <SecondaryButton>submit work</SecondaryButton>
     </main>
   );
 };

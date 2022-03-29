@@ -12,21 +12,24 @@ export const LIGHT_BLUE = "#13BCD7";
 export const BLACK = "#170E07";
 export const CREAM = "#FFFAF2";
 
-const fonts = {
-  silkSerif: "Silk Serif",
+export const fonts = {
+  cubano: "Cubano",
   epilogue: "Epilogue",
   epilogueItalic: "Epilogue Italic",
+  IBMPlexMono: "IBM Plex Mono",
 };
 
 export const H1 = styled.h1`
-  font-family: ${fonts.silkSerif};
+  font-family: ${fonts.cubano};
   text-transform: lowercase;
   font-size: 60px;
   font-style: semi-bold;
+  color: {
+  }
 `;
 
 export const H2 = styled.h2`
-  font-family: ${fonts.epilogueItalic};
+  font-family: ${fonts.epilogue};
   font-size: 26px;
   font-style: bold-italic;
 `;
@@ -37,16 +40,35 @@ export const P = styled.p`
   font-style: regular;
 `;
 
-export const Button = styled.button`
+export const PrimaryButton = styled.button`
+  font-family: ${fonts.epilogue};
+  paddingleft: 3px;
+  paddingright: 3px;
+  transform: skew(15deg);
+  color: ${CREAM};
+  border-radius: 2px;
+  border: 2px solid ${ROYAL_BLUE};
+  background-color: ${ROYAL_BLUE};
+  &:hover {
+    background-color: transparent;
+    color: ${ROYAL_BLUE};
+  }
+`;
+
+//offsets the skew from transforming the button
+export const ButtonText = styled.p`
+  transform: skew(-15deg);
+`;
+
+export const SecondaryButton = styled.button`
   font-family: ${fonts.epilogue};
   padding: 6px;
-  transform: skew(20deg);
-  color: ${ROYAL_BLUE};
-  border-radius: 4px;
-  border: 2px solid ${ROYAL_BLUE};
+  color: ${CREAM};
   background-color: transparent;
+  text-decoration: underline 2px ${ROYAL_BLUE};
+  border: 0px;
   &:hover {
-    background-color: ${ROYAL_BLUE};
-    color: ${CREAM};
+    background-color: transparent;
+    text-decoration: underline 4px ${ROYAL_BLUE};
   }
 `;
