@@ -1,33 +1,89 @@
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import * as React from 'react';
-
-// styles
-const pageStyles = {
-  color: '#232129',
-  padding: 96,
-  fontFamily: '-apple-system, Roboto, sans-serif, serif',
-};
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 500,
-};
-const headingAccentStyles = {
-  color: '#663399',
-};
+import Layout from '../components/Layout';
+import ProjectPreview from '../components/ProjectPreview';
 
 const IndexPage = () => {
+  const pageQuery = useStaticQuery(graphql`
+    query MyQuery {
+      prismicHomepage {
+        data {
+          main_heading {
+            text
+          }
+          blurb {
+            text
+          }
+          projects {
+            project {
+              document {
+                ... on PrismicProject {
+                  id
+                  uid
+                  data {
+                    name {
+                      text
+                    }
+                    description {
+                      text
+                    }
+                    works {
+                      content {
+                        document {
+                          ... on PrismicVideo {
+                            uid
+                            id
+                            data {
+                              title {
+                                text
+                              }
+                              embed {
+                                thumbnail_url
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          single_works_heading {
+            text
+          }
+          single_works_description {
+            text
+          }
+        }
+      }
+    }
+  `);
+
+  const {
+    prismicHomepage: {
+      data: {
+        main_heading: mainHeading,
+        blurb,
+        projects,
+        single_works_heading: singleWorksHeading,
+        single_works_description: singleWorksDescription,
+      },
+    },
+  } = pageQuery;
+
   return (
-    <main style={pageStyles}>
-      <title>Home Page</title>
-      <h1 style={headingStyles}>
-        Hello, Scout Presents Team!!
-        <br />
-        <span style={headingAccentStyles}>We have a site! </span>
-        <span role="img" aria-label="Party popper emojis">
-          🎉🎉🎉
-        </span>
-      </h1>
-    </main>
+    <Layout>
+      <h1>{mainHeading.text}</h1>
+      <h2>{blurb.text}</h2>
+      {projects.map((project) => {
+        return <ProjectPreview project={project.project.document} />;
+      })}
+      <h1>{singleWorksHeading.text}</h1>
+      <p>{singleWorksDescription.text}</p>
+      <button>Watch</button>
+    </Layout>
   );
 };
 
