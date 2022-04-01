@@ -3,7 +3,8 @@ import {
   PrimaryButton,
   H1,
   H2,
-  ROYAL_BLUE,
+  BLUE,
+  GREEN,
   YELLOW,
   BLACK,
   SecondaryButton,
@@ -12,7 +13,7 @@ import {
 
 // styles
 const pageStyles = {
-  color: ROYAL_BLUE,
+  color: BLUE,
   backgroundColor: BLACK,
   padding: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
@@ -38,10 +39,10 @@ const IndexPage = () => {
           🎉🎉🎉
         </span>
       </H1>
-      <PrimaryButton>
+      <PrimaryButton color={GREEN}>
         <ButtonText>submit work</ButtonText>
       </PrimaryButton>
-      <SecondaryButton>submit work</SecondaryButton>
+      <SecondaryButton color={YELLOW}>submit work</SecondaryButton>
     </main>
   );
 };

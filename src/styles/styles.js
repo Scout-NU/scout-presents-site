@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import "./styles.css";
 
@@ -7,51 +6,53 @@ export const YELLOW = "#ECF955";
 export const GREEN = "#058855";
 export const PINK = "#E8A8CA";
 export const RED = "#DF4E20";
-export const ROYAL_BLUE = "#3C60DD";
-export const LIGHT_BLUE = "#13BCD7";
+export const BLUE = "#3C60DD";
 export const BLACK = "#170E07";
 export const CREAM = "#FFFAF2";
 
 export const fonts = {
   cubano: "Cubano",
   epilogue: "Epilogue",
-  epilogueItalic: "Epilogue Italic",
   IBMPlexMono: "IBM Plex Mono",
 };
 
 export const H1 = styled.h1`
   font-family: ${fonts.cubano};
   text-transform: lowercase;
-  font-size: 60px;
+  font-size: 5.4rem;
   font-style: semi-bold;
-  color: {
-  }
 `;
 
 export const H2 = styled.h2`
   font-family: ${fonts.epilogue};
-  font-size: 26px;
-  font-style: bold-italic;
+  font-size: 3.2rem;
+  font-style: normal;
+`;
+
+export const H3 = styled.h2`
+  font-family: ${fonts.epilogue};
+  font-size: 3.2rem;
+  font-style: bold;
 `;
 
 export const P = styled.p`
   font-family: ${fonts.epilogue};
-  font-size: 16px;
-  font-style: regular;
+  font-size: 1rem;
+  font-style: normal;
 `;
 
 export const PrimaryButton = styled.button`
   font-family: ${fonts.epilogue};
-  paddingleft: 3px;
-  paddingright: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
   transform: skew(15deg);
   color: ${CREAM};
   border-radius: 2px;
-  border: 2px solid ${ROYAL_BLUE};
-  background-color: ${ROYAL_BLUE};
+  border: 2px solid ${(props) => (props.color ? props.color : BLUE)};
+  background-color: ${(props) => (props.color ? props.color : BLUE)};
   &:hover {
     background-color: transparent;
-    color: ${ROYAL_BLUE};
+    color: ${(props) => (props.color ? props.color : BLUE)};
   }
 `;
 
@@ -65,10 +66,12 @@ export const SecondaryButton = styled.button`
   padding: 6px;
   color: ${CREAM};
   background-color: transparent;
-  text-decoration: underline 2px ${ROYAL_BLUE};
+  text-decoration: underline 2px
+    ${(props) => (props.color ? props.color : BLUE)};
   border: 0px;
   &:hover {
     background-color: transparent;
-    text-decoration: underline 4px ${ROYAL_BLUE};
+    text-decoration: underline 4px
+      ${(props) => (props.color ? props.color : BLUE)};
   }
 `;
