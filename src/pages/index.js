@@ -1,10 +1,24 @@
-import * as React from 'react';
+import * as React from "react";
+import {
+  PrimaryButton,
+  H1,
+  H2,
+  P,
+  H3,
+  BLUE,
+  GREEN,
+  YELLOW,
+  BLACK,
+  SecondaryButton,
+  ButtonText,
+} from "../styles/styles";
 
 // styles
 const pageStyles = {
-  color: '#232129',
+  color: BLUE,
+  backgroundColor: BLACK,
   padding: 96,
-  fontFamily: '-apple-system, Roboto, sans-serif, serif',
+  fontFamily: "-apple-system, Roboto, sans-serif, serif",
 };
 const headingStyles = {
   marginTop: 0,
@@ -12,21 +26,27 @@ const headingStyles = {
   maxWidth: 500,
 };
 const headingAccentStyles = {
-  color: '#663399',
+  color: YELLOW,
 };
 
 const IndexPage = () => {
   return (
     <main style={pageStyles}>
       <title>Home Page</title>
-      <h1 style={headingStyles}>
+      <H1 style={headingStyles}>
         Hello, Scout Presents Team!!
         <br />
-        <span style={headingAccentStyles}>We have a site! </span>
+        <H2 style={headingAccentStyles}>This is H2 </H2>
+        <H3 style={headingAccentStyles}>This is H3 </H3>
+        <P style={headingAccentStyles}>This is P </P>
         <span role="img" aria-label="Party popper emojis">
           🎉🎉🎉
         </span>
-      </h1>
+      </H1>
+      <PrimaryButton color={GREEN}>
+        <ButtonText>submit work</ButtonText>
+      </PrimaryButton>
+      <SecondaryButton color={YELLOW}>submit work</SecondaryButton>
     </main>
   );
 };
