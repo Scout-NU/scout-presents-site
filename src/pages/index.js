@@ -3,6 +3,8 @@ import {
   PrimaryButton,
   H1,
   H2,
+  P,
+  H3,
   BLUE,
   GREEN,
   YELLOW,
@@ -34,7 +36,9 @@ const IndexPage = () => {
       <H1 style={headingStyles}>
         Hello, Scout Presents Team!!
         <br />
-        <H2 style={headingAccentStyles}>We have a site! </H2>
+        <H2 style={headingAccentStyles}>This is H2 </H2>
+        <H3 style={headingAccentStyles}>This is H3 </H3>
+        <P style={headingAccentStyles}>This is P </P>
         <span role="img" aria-label="Party popper emojis">
           🎉🎉🎉
         </span>

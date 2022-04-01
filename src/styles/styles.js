@@ -19,7 +19,8 @@ export const fonts = {
 export const H1 = styled.h1`
   font-family: ${fonts.cubano};
   text-transform: lowercase;
-  font-size: 5.4rem;
+  font-size: 4.5rem;
+  line-height: 4.875rem;
   font-style: semi-bold;
 `;
 
