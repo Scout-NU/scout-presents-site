@@ -1,53 +1,89 @@
-import * as React from "react";
-import {
-  PrimaryButton,
-  H1,
-  H2,
-  P,
-  H3,
-  BLUE,
-  GREEN,
-  YELLOW,
-  BLACK,
-  SecondaryButton,
-  ButtonText,
-} from "../styles/styles";
-
-// styles
-const pageStyles = {
-  color: BLUE,
-  backgroundColor: BLACK,
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-};
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 500,
-};
-const headingAccentStyles = {
-  color: YELLOW,
-};
+import { graphql, useStaticQuery } from 'gatsby';
+import * as React from 'react';
+import Layout from '../components/Layout';
+import ProjectPreview from '../components/ProjectPreview';
 
 const IndexPage = () => {
+  const pageQuery = useStaticQuery(graphql`
+    query MyQuery {
+      prismicHomepage {
+        data {
+          main_heading {
+            text
+          }
+          blurb {
+            text
+          }
+          projects {
+            project {
+              document {
+                ... on PrismicProject {
+                  id
+                  uid
+                  data {
+                    name {
+                      text
+                    }
+                    description {
+                      text
+                    }
+                    works {
+                      content {
+                        document {
+                          ... on PrismicVideo {
+                            uid
+                            id
+                            data {
+                              title {
+                                text
+                              }
+                              embed {
+                                thumbnail_url
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          single_works_heading {
+            text
+          }
+          single_works_description {
+            text
+          }
+        }
+      }
+    }
+  `);
+
+  const {
+    prismicHomepage: {
+      data: {
+        main_heading: mainHeading,
+        blurb,
+        projects,
+        single_works_heading: singleWorksHeading,
+        single_works_description: singleWorksDescription,
+      },
+    },
+  } = pageQuery;
+
   return (
-    <main style={pageStyles}>
-      <title>Home Page</title>
-      <H1 style={headingStyles}>
-        Hello, Scout Presents Team!!
-        <br />
-        <H2 style={headingAccentStyles}>This is H2 </H2>
-        <H3 style={headingAccentStyles}>This is H3 </H3>
-        <P style={headingAccentStyles}>This is P </P>
-        <span role="img" aria-label="Party popper emojis">
-          🎉🎉🎉
-        </span>
-      </H1>
-      <PrimaryButton color={GREEN}>
-        <ButtonText>submit work</ButtonText>
-      </PrimaryButton>
-      <SecondaryButton color={YELLOW}>submit work</SecondaryButton>
-    </main>
+    <Layout>
+      <h1>{mainHeading.text}</h1>
+      <h2>{blurb.text}</h2>
+      {projects.map((project) => {
+        return <ProjectPreview project={project.project.document} />;
+      })}
+      <h1>{singleWorksHeading.text}</h1>
+      <p>{singleWorksDescription.text}</p>
+      <button>Watch</button>
+    </Layout>
   );
 };
 
