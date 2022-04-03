@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import Layout from '../components/Layout';
+import Hero from '../components/Hero';
 import ProjectPreview from '../components/ProjectPreview';
 
 const IndexPage = () => {
@@ -75,8 +76,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <h1>{mainHeading.text}</h1>
-      <h2>{blurb.text}</h2>
+      <Hero heading={mainHeading.text} blurb={blurb.text} />
       {projects.map((project) => {
         return <ProjectPreview project={project.project.document} />;
       })}

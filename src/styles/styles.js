@@ -1,20 +1,28 @@
-import styled from "styled-components";
-import "./styles.css";
+import styled from 'styled-components';
+import './styles.css';
 
 // Colors
-export const YELLOW = "#ECF955";
-export const GREEN = "#058855";
-export const PINK = "#E8A8CA";
-export const RED = "#DF4E20";
-export const BLUE = "#3C60DD";
-export const BLACK = "#170E07";
-export const CREAM = "#FFFAF2";
+export const YELLOW = '#ECF955';
+export const GREEN = '#058855';
+export const PINK = '#E8A8CA';
+export const RED = '#DF4E20';
+export const BLUE = '#3C60DD';
+export const BLACK = '#170E07';
+export const CREAM = '#FFFAF2';
 
 export const fonts = {
-  cubano: "Cubano",
-  epilogue: "Epilogue",
-  IBMPlexMono: "IBM Plex Mono",
+  cubano: 'Cubano',
+  epilogue: 'Epilogue',
+  IBMPlexMono: 'IBM Plex Mono',
 };
+
+export const Display = styled.h1`
+  font-family: ${fonts.cubano};
+  font-size: 8.5rem;
+  line-height: 7.5rem;
+  margin-block-start: 0;
+  margin-block-end: 0;
+`;
 
 export const H1 = styled.h1`
   font-family: ${fonts.cubano};
@@ -26,19 +34,22 @@ export const H1 = styled.h1`
 
 export const H2 = styled.h2`
   font-family: ${fonts.epilogue};
-  font-size: 3.2rem;
-  font-style: normal;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-style: italic;
 `;
 
 export const H3 = styled.h2`
   font-family: ${fonts.epilogue};
-  font-size: 3.2rem;
+  font-size: 1.125rem;
+  line-height: 1.375rem;
   font-style: bold;
 `;
 
 export const P = styled.p`
   font-family: ${fonts.epilogue};
   font-size: 1rem;
+  line-height: 1.375rem;
   font-style: normal;
 `;
 
