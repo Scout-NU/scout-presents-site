@@ -1,19 +1,20 @@
-import styled from "styled-components";
-import "./styles.css";
+import styled from 'styled-components';
+import './styles.css';
+import breakpoints from './breakpoints';
 
 // Colors
-export const YELLOW = "#ECF955";
-export const GREEN = "#058855";
-export const PINK = "#E8A8CA";
-export const RED = "#DF4E20";
-export const BLUE = "#3C60DD";
-export const BLACK = "#170E07";
-export const CREAM = "#FFFAF2";
+export const YELLOW = '#ECF955';
+export const GREEN = '#058855';
+export const PINK = '#E8A8CA';
+export const RED = '#DF4E20';
+export const BLUE = '#3C60DD';
+export const BLACK = '#170E07';
+export const CREAM = '#FFFAF2';
 
 export const fonts = {
-  cubano: "Cubano",
-  epilogue: "Epilogue",
-  IBMPlexMono: "IBM Plex Mono",
+  cubano: 'Cubano',
+  epilogue: 'Epilogue',
+  IBMPlexMono: 'IBM Plex Mono',
 };
 
 export const H1 = styled.h1`
@@ -74,5 +75,13 @@ export const SecondaryButton = styled.button`
     background-color: transparent;
     text-decoration: underline 4px
       ${(props) => (props.color ? props.color : BLUE)};
+  }
+`;
+
+export const Container = styled.div`
+  margin: 0 1.5rem;
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    margin: 0 3rem;
   }
 `;
