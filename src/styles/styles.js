@@ -19,28 +19,36 @@ export const fonts = {
 
 export const H1 = styled.h1`
   font-family: ${fonts.cubano};
-  text-transform: lowercase;
-  font-size: 4.5rem;
-  line-height: 4.875rem;
-  font-style: semi-bold;
+  font-size: 3.25rem;
+  line-height: 3.625rem;
+  @media (min-width: ${breakpoints.tablet}px) {
+    font-size: 4.5rem;
+    line-height: 4.875rem;
+  }
 `;
 
 export const H2 = styled.h2`
-  font-family: ${fonts.epilogue};
-  font-size: 3.2rem;
-  font-style: normal;
+  font-family: ${fonts.IBMPlexMono};
+  font-weight: 700;
+  font-size: 1.4375rem;
+  line-height: 1.875rem;
+  @media (min-width: ${breakpoints.tablet}px) {
+    font-size: 1.875rem;
+    line-height: 2.125rem;
+  }
 `;
 
-export const H3 = styled.h2`
-  font-family: ${fonts.epilogue};
-  font-size: 3.2rem;
-  font-style: bold;
+export const H3 = styled.h3`
+  font-family: ${fonts.IBMPlexMono};
+  ${(props) => props.bold && 'font-weight: 600;'}
+  font-size: 1.125rem;
+  line-height: 1.375rem;
 `;
 
 export const P = styled.p`
   font-family: ${fonts.epilogue};
   font-size: 1rem;
-  font-style: normal;
+  line-height: 1.375rem;
 `;
 
 export const PrimaryButton = styled.button`
