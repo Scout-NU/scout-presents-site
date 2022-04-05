@@ -40,7 +40,7 @@ export const H2 = styled.h2`
 
 export const H3 = styled.h3`
   font-family: ${fonts.IBMPlexMono};
-  ${(props) => props.bold && 'font-weight: 600;'}
+  font-weight: ${(props) => (props.bold ? '600' : '400')};
   font-size: 1.125rem;
   line-height: 1.375rem;
 `;
@@ -53,10 +53,9 @@ export const P = styled.p`
 
 export const PrimaryButton = styled.button`
   font-family: ${fonts.epilogue};
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 0.5rem 1.5rem;
   transform: skew(15deg);
-  color: ${CREAM};
+  color: ${(props) => (props.color === YELLOW ? BLACK : CREAM)};
   border-radius: 2px;
   border: 2px solid ${(props) => (props.color ? props.color : BLUE)};
   background-color: ${(props) => (props.color ? props.color : BLUE)};
@@ -67,8 +66,11 @@ export const PrimaryButton = styled.button`
 `;
 
 //offsets the skew from transforming the button
-export const ButtonText = styled.p`
+export const ButtonText = styled(H3)`
   transform: skew(-15deg);
+  text-transform: lowercase;
+  margin-block-start: 0;
+  margin-block-end: 0;
 `;
 
 export const SecondaryButton = styled.button`

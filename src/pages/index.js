@@ -2,6 +2,14 @@ import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import Layout from '../components/Layout';
 import ProjectPreview from '../components/ProjectPreview';
+import {
+  ButtonText,
+  Container,
+  H1,
+  P,
+  PrimaryButton,
+  YELLOW,
+} from '../styles/styles';
 
 const IndexPage = () => {
   const pageQuery = useStaticQuery(graphql`
@@ -80,9 +88,13 @@ const IndexPage = () => {
       {projects.map((project) => {
         return <ProjectPreview project={project.project.document} />;
       })}
-      <h1>{singleWorksHeading.text}</h1>
-      <p>{singleWorksDescription.text}</p>
-      <button>Watch</button>
+      <Container>
+        <H1>{singleWorksHeading.text}</H1>
+        <P>{singleWorksDescription.text}</P>
+        <PrimaryButton color={YELLOW}>
+          <ButtonText bold>Watch</ButtonText>
+        </PrimaryButton>
+      </Container>
     </Layout>
   );
 };
