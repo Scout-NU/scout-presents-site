@@ -1,17 +1,17 @@
 import React from 'react';
-import { Container, Image, Title } from './styled';
+import { Container, Title, Blurb, Image } from './styled';
 import images from './images';
 
 const Hero = ({ heading, blurb }) => (
   <Container>
-    {/* <Display>{heading}</Display>
-    <H2>{blurb}</H2> */}
     <Title>{heading}</Title>
+    {/* <Blurb>{blurb}</Blurb> */}
     {images.map((image) => (
       <Image
         src={image.src}
         startPos={image.startPos}
-        h={image.height}
+        dimensions={image.dimensions}
+        h={image.dimensions[1]}
         layer={image.layer}
       />
     ))}
