@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import './styles.css';
-import breakpoints from './breakpoints';
+import { min } from './breakpoints';
 
 // Colors
 export const YELLOW = '#ECF955';
@@ -21,7 +21,7 @@ export const H1 = styled.h1`
   font-family: ${fonts.cubano};
   font-size: 3.25rem;
   line-height: 3.625rem;
-  @media (min-width: ${breakpoints.tablet}px) {
+  ${min.tablet} {
     font-size: 4.5rem;
     line-height: 4.875rem;
   }
@@ -32,7 +32,7 @@ export const H2 = styled.h2`
   font-weight: 700;
   font-size: 1.4375rem;
   line-height: 1.875rem;
-  @media (min-width: ${breakpoints.tablet}px) {
+  ${min.tablet} {
     font-size: 1.875rem;
     line-height: 2.125rem;
   }
@@ -52,7 +52,6 @@ export const P = styled.p`
 `;
 
 export const PrimaryButton = styled.button`
-  font-family: ${fonts.epilogue};
   padding: 0.5rem 1.5rem;
   transform: skew(15deg);
   color: ${(props) => (props.color === YELLOW ? BLACK : CREAM)};
@@ -88,10 +87,10 @@ export const SecondaryButton = styled.button`
   }
 `;
 
-export const Container = styled.div`
+export const MarginContainer = styled.div`
   margin: 0 1.5rem;
 
-  @media (min-width: ${breakpoints.tablet}px) {
+  ${min.tablet} {
     margin: 0 3rem;
   }
 `;

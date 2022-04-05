@@ -4,12 +4,13 @@ import Layout from '../components/Layout';
 import ProjectPreview from '../components/ProjectPreview';
 import {
   ButtonText,
-  Container,
+  MarginContainer,
   H1,
-  P,
+  H2,
   PrimaryButton,
   YELLOW,
 } from '../styles/styles';
+import { SingleWorksDescription } from '../styles/index.styles';
 
 const IndexPage = () => {
   const pageQuery = useStaticQuery(graphql`
@@ -83,18 +84,22 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <h1>{mainHeading.text}</h1>
-      <h2>{blurb.text}</h2>
+      <MarginContainer>
+        <H1>{mainHeading.text}</H1>
+        <H2>{blurb.text}</H2>
+      </MarginContainer>
       {projects.map((project) => {
         return <ProjectPreview project={project.project.document} />;
       })}
-      <Container>
+      <MarginContainer>
         <H1>{singleWorksHeading.text}</H1>
-        <P>{singleWorksDescription.text}</P>
+        <SingleWorksDescription>
+          {singleWorksDescription.text}
+        </SingleWorksDescription>
         <PrimaryButton color={YELLOW}>
           <ButtonText bold>Watch</ButtonText>
         </PrimaryButton>
-      </Container>
+      </MarginContainer>
     </Layout>
   );
 };
