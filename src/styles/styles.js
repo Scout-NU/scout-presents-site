@@ -58,6 +58,7 @@ export const PrimaryButton = styled.button`
   border-radius: 2px;
   border: 2px solid ${(props) => (props.color ? props.color : BLUE)};
   background-color: ${(props) => (props.color ? props.color : BLUE)};
+  cursor: pointer;
   &:hover {
     background-color: transparent;
     color: ${(props) => (props.color ? props.color : BLUE)};
@@ -70,6 +71,7 @@ export const ButtonText = styled(H3)`
   text-transform: lowercase;
   margin-block-start: 0;
   margin-block-end: 0;
+  cursor: pointer;
 `;
 
 export const SecondaryButton = styled.button`
@@ -80,6 +82,7 @@ export const SecondaryButton = styled.button`
   text-decoration: underline 2px
     ${(props) => (props.color ? props.color : BLUE)};
   border: 0px;
+  cursor: pointer;
   &:hover {
     background-color: transparent;
     text-decoration: underline 4px

@@ -89,7 +89,12 @@ const IndexPage = () => {
         <H2>{blurb.text}</H2>
       </MarginContainer>
       {projects.map((project) => {
-        return <ProjectPreview project={project.project.document} />;
+        return (
+          <ProjectPreview
+            key={project.project.document.uid}
+            project={project.project.document}
+          />
+        );
       })}
       <MarginContainer>
         <H1>{singleWorksHeading.text}</H1>

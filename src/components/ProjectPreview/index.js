@@ -44,7 +44,7 @@ const ProjectPreview = ({ project }) => {
             } = work;
             return (
               <div>
-                <img src={thumbnail_url} />
+                <img alt={title.text} src={thumbnail_url} />
                 <H2>{title.text}</H2>
                 <Link to={`/works/${uid}`}>
                   <SecondaryButton>Watch</SecondaryButton>
