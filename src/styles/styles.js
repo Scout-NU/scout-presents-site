@@ -96,4 +96,9 @@ export const MarginContainer = styled.div`
   ${min.tablet} {
     margin: 0 3rem;
   }
+
+  ${min.desktopLg} {
+    max-width: 1344px;
+    margin: auto;
+  }
 `;
