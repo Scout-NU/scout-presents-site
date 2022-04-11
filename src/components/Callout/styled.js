@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PINK } from "../../styles/styles";
+import { PINK, BLACK } from "../../styles/styles";
 
 export const Container = styled.div`
   display: flex;
@@ -7,5 +7,6 @@ export const Container = styled.div`
   background-color: ${PINK};
   text-align: center;
   margin: auto;
-  padding: 0 200px 20px 200px;
+  color: ${BLACK};
+  padding: 5% 25% 5% 25%;
 `;
