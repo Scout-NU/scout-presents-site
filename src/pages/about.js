@@ -9,6 +9,7 @@ import {
   ReverseSection,
   AboutImages,
 } from "../styles/about.styles";
+import { RichText } from "prismic-reactjs";
 
 import { H1, H3, P, MarginContainer } from "../styles/styles";
 
@@ -62,7 +63,9 @@ const About = () => {
         <Section>
           <AboutDescription>
             <H3 bold>{sections[0].section_header.text}</H3>
-            <P>{sections[0].section_text.richText[0].text}</P>
+            <P>
+              <RichText render={sections[0].section_text.richText} />
+            </P>
           </AboutDescription>
           <AboutImages>
             <img
@@ -82,7 +85,9 @@ const About = () => {
           </AboutImages>
           <AboutDescription>
             <H3 bold>{sections[1].section_header.text}</H3>
-            <P>{sections[1].section_text.richText[0].text}</P>
+            <P>
+              <RichText render={sections[1].section_text.richText} />
+            </P>
           </AboutDescription>
         </ReverseSection>
       </MarginContainer>
