@@ -11,7 +11,7 @@ import {
 } from "../styles/about.styles";
 import { RichText } from "prismic-reactjs";
 
-import { H1, H3, P, MarginContainer } from "../styles/styles";
+import { H1, H2, P, MarginContainer } from "../styles/styles";
 
 const About = () => {
   const aboutQuery = useStaticQuery(graphql`
@@ -62,7 +62,7 @@ const About = () => {
         </AboutTitle>
         <Section>
           <AboutDescription>
-            <H3 bold>{sections[0].section_header.text}</H3>
+            <H2 bold>{sections[0].section_header.text}</H2>
             <P>
               <RichText render={sections[0].section_text.richText} />
             </P>
@@ -84,14 +84,13 @@ const About = () => {
             />
           </AboutImages>
           <AboutDescription>
-            <H3 bold>{sections[1].section_header.text}</H3>
+            <H2 bold>{sections[1].section_header.text}</H2>
             <P>
               <RichText render={sections[1].section_text.richText} />
             </P>
           </AboutDescription>
         </ReverseSection>
       </MarginContainer>
-
       <CallOut header={calloutHeading.text} label={calloutLabel.text}></CallOut>
     </Layout>
   );
