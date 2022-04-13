@@ -1,13 +1,17 @@
 import React from 'react';
-import { StyledLink, StyledButton, ButtonText } from './styled';
+import { StyledLink, StyledButton, ButtonText, JumboText } from './styled';
 import { BLUE } from '../../styles/styles';
 
-const Button = ({ onClick, to, secondary, color = BLUE, children }) => {
+const Button = ({ onClick, to, secondary, color = BLUE, jumbo, children }) => {
   const ButtonComponent = () => (
     <StyledButton onClick={onClick} secondary={secondary} color={color}>
-      <ButtonText secondary={secondary} bold>
-        {children}
-      </ButtonText>
+      {jumbo ? (
+        <JumboText>{children}</JumboText>
+      ) : (
+        <ButtonText secondary={secondary} bold>
+          {children}
+        </ButtonText>
+      )}
     </StyledButton>
   );
 

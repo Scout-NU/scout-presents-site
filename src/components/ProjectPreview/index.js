@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { Container, FlexContainer, Overview, Content } from './styled';
 import { H1, H2, P, YELLOW } from '../../styles/styles';
 import Button from '../Button';

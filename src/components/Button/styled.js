@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
-import { H3, YELLOW, BLACK, CREAM } from '../../styles/styles';
+import { H1, H3, YELLOW, BLACK, CREAM } from '../../styles/styles';
 import Cursor from '../../images/cursor-pointer.svg';
 
 export const StyledLink = styled(Link)`
@@ -37,10 +37,18 @@ export const StyledButton = styled.button`
 `;
 
 // offsets the skew from transforming the button
-export const ButtonText = styled(H3)`
+const textStyles = css`
   ${(props) => !props.secondary && 'transform: skew(-15deg);'}
   text-transform: lowercase;
   margin-block-start: 0;
   margin-block-end: 0;
   cursor: url(${Cursor}), pointer;
+`;
+
+export const ButtonText = styled(H3)`
+  ${textStyles}
+`;
+
+export const JumboText = styled(H1)`
+  ${textStyles}
 `;
