@@ -51,45 +51,6 @@ export const P = styled.p`
   line-height: 1.375rem;
 `;
 
-export const PrimaryButton = styled.button`
-  padding: 0.5rem 1.5rem;
-  transform: skew(15deg);
-  color: ${(props) => (props.color === YELLOW ? BLACK : CREAM)};
-  border-radius: 2px;
-  border: 2px solid ${(props) => (props.color ? props.color : BLUE)};
-  background-color: ${(props) => (props.color ? props.color : BLUE)};
-  cursor: pointer;
-  &:hover {
-    background-color: transparent;
-    color: ${(props) => (props.color ? props.color : BLUE)};
-  }
-`;
-
-//offsets the skew from transforming the button
-export const ButtonText = styled(H3)`
-  transform: skew(-15deg);
-  text-transform: lowercase;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  cursor: pointer;
-`;
-
-export const SecondaryButton = styled.button`
-  font-family: ${fonts.epilogue};
-  padding: 6px;
-  color: ${CREAM};
-  background-color: transparent;
-  text-decoration: underline 2px
-    ${(props) => (props.color ? props.color : BLUE)};
-  border: 0px;
-  cursor: pointer;
-  &:hover {
-    background-color: transparent;
-    text-decoration: underline 4px
-      ${(props) => (props.color ? props.color : BLUE)};
-  }
-`;
-
 export const MarginContainer = styled.div`
   margin: 0 1.5rem;
 
