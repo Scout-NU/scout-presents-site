@@ -9,13 +9,12 @@ import {
   ReverseSection,
   AboutImages,
 } from "../styles/about.styles";
-import { RichText } from "prismic-reactjs";
-
-import { H1, H2, P, MarginContainer } from "../styles/styles";
+import { PrismicRichText } from "@prismicio/react";
+import { H1, H2, MarginContainer } from "../styles/styles";
 
 const About = () => {
   const aboutQuery = useStaticQuery(graphql`
-    query AboutQuery {
+    query aboutQuery {
       prismicAboutPage {
         data {
           callout_cta_label {
@@ -27,16 +26,25 @@ const About = () => {
           main_heading {
             text
           }
-          sections {
-            image {
-              url
-            }
-            section_header {
-              text
-            }
-            section_text {
-              richText
-            }
+          overview_section {
+            text
+          }
+          overview_section_text {
+            richText
+          }
+          left_image {
+            alt
+            url
+          }
+          right_image {
+            alt
+            url
+          }
+          who_section_heading {
+            text
+          }
+          who_section_text {
+            richText
           }
         }
       }
@@ -47,7 +55,12 @@ const About = () => {
     prismicAboutPage: {
       data: {
         main_heading: mainHeading,
-        sections,
+        left_image: leftImage,
+        right_image: rightImage,
+        overview_section: overviewSection,
+        overview_section_text: overviewSectionText,
+        who_section_heading: whoSectionHeading,
+        who_section_text: whoSectionText,
         callout_heading: calloutHeading,
         callout_cta_label: calloutLabel,
       },
@@ -62,32 +75,20 @@ const About = () => {
         </AboutTitle>
         <Section>
           <AboutDescription>
-            <H2 bold>{sections[0].section_header.text}</H2>
-            <P>
-              <RichText render={sections[0].section_text.richText} />
-            </P>
+            <H2 bold>{overviewSection.text}</H2>
+            <PrismicRichText field={overviewSectionText.richText} />
           </AboutDescription>
           <AboutImages>
-            <img
-              src={sections[0].image.url}
-              alt={sections[0].section_header.text}
-              width="100%"
-            />
+            <img src={rightImage.url} alt={rightImage.alt} width="100%" />
           </AboutImages>
         </Section>
         <ReverseSection>
           <AboutImages>
-            <img
-              src={sections[1].image.url}
-              alt={sections[1].section_header.text}
-              width="100%"
-            />
+            <img src={leftImage.url} alt={leftImage.alt} width="100%" />
           </AboutImages>
           <AboutDescription>
-            <H2 bold>{sections[1].section_header.text}</H2>
-            <P>
-              <RichText render={sections[1].section_text.richText} />
-            </P>
+            <H2 bold>{whoSectionHeading.text}</H2>
+            <PrismicRichText field={whoSectionText.richText} />
           </AboutDescription>
         </ReverseSection>
       </MarginContainer>

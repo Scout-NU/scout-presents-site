@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { P } from "./styles";
-import { min, tablet } from "./breakpoints";
+import { min } from "./breakpoints";
 
-export const Section = styled(P)`
+export const Section = styled.div`
   display: flex;
   flex-direction: column;
 
@@ -13,7 +12,7 @@ export const Section = styled(P)`
 `;
 
 //image is on the left in row form but then needs to be below in column form
-export const ReverseSection = styled(Section)`
+export const ReverseSection = styled.div`
   flex-direction: column-reverse;
   ${min.desktop} {
     display: flex;
@@ -21,7 +20,7 @@ export const ReverseSection = styled(Section)`
   }
 `;
 
-export const AboutTitle = styled(P)`
+export const AboutTitle = styled.div`
   width: 100%;
 
   ${min.tablet} {
@@ -33,7 +32,7 @@ export const AboutTitle = styled(P)`
   }
 `;
 
-export const AboutImages = styled(P)`
+export const AboutImages = styled.div`
   width: 100%;
   ${min.tablet} {
     margin-left: 16.66%;
@@ -46,7 +45,7 @@ export const AboutImages = styled(P)`
   }
 `;
 
-export const AboutDescription = styled(P)`
+export const AboutDescription = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
