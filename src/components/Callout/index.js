@@ -8,9 +8,8 @@ const CallOut = ({ label, header }) => (
     <Container>
       <H2>{header}</H2>
       <LargeButton>
-        <Button to={`/submit`} color={GREEN}>
-          {" "}
-          {label}{" "}
+        <Button to={`/submit`} color={GREEN} jumbo="true">
+          {label}
         </Button>
       </LargeButton>
     </Container>
