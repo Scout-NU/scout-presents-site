@@ -14,6 +14,7 @@ const primaryStyles = css`
   border-radius: 2px;
   border: 2px solid ${(props) => props.color};
   background-color: ${(props) => props.color};
+  text-transform: lowercase;
   &:hover {
     background-color: transparent;
     color: ${(props) => props.color};
@@ -39,7 +40,6 @@ export const StyledButton = styled.button`
 // offsets the skew from transforming the button
 const textStyles = css`
   ${(props) => !props.secondary && 'transform: skew(-15deg);'}
-  text-transform: lowercase;
   margin-block-start: 0;
   margin-block-end: 0;
   cursor: url(${Cursor}), pointer;
