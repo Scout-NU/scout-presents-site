@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import CallOut from "../components/Callout";
 import {
   AboutDescription,
+  WhoImages,
   AboutTitle,
   Section,
   ReverseSection,
@@ -78,14 +79,10 @@ const About = () => {
             <H2 bold>{overviewSection.text}</H2>
             <PrismicRichText field={overviewSectionText.richText} />
           </AboutDescription>
-          <AboutImages>
-            <img src={rightImage.url} alt={rightImage.alt} width="100%" />
-          </AboutImages>
+          <AboutImages src={rightImage.url} alt={rightImage.alt} />
         </Section>
         <ReverseSection>
-          <AboutImages>
-            <img src={leftImage.url} alt={leftImage.alt} width="100%" />
-          </AboutImages>
+          <WhoImages src={leftImage.url} alt={leftImage.alt} />
           <AboutDescription>
             <H2 bold>{whoSectionHeading.text}</H2>
             <PrismicRichText field={whoSectionText.richText} />

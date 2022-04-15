@@ -1,21 +1,21 @@
 import styled from "styled-components";
 import { min } from "./breakpoints";
+import { fonts } from "./styles";
 
 export const Section = styled.div`
   display: flex;
   flex-direction: column;
 
   ${min.desktop} {
-    display: flex;
     flex-direction: row;
   }
 `;
 
 //image is on the left in row form but then needs to be below in column form
 export const ReverseSection = styled.div`
+  display: flex;
   flex-direction: column-reverse;
   ${min.desktop} {
-    display: flex;
     flex-direction: row;
   }
 `;
@@ -32,16 +32,29 @@ export const AboutTitle = styled.div`
   }
 `;
 
-export const AboutImages = styled.div`
+export const AboutImages = styled.img`
   width: 100%;
+  margin-bottom: 8.3%;
+
   ${min.tablet} {
-    margin-left: 16.66%;
+    margin-left: 25%;
     width: 75%;
   }
   ${min.desktop} {
+    margin-top: -8.3%;
+    margin-left: 14.67%;
+    width: 41.67%;
+  }
+`;
+
+export const WhoImages = styled.img`
+  width: 100%;
+  margin-bottom: 8.3%;
+
+  ${min.desktop} {
     margin-left: 8.3%;
-    margin-right: 8.3%;
-    width: 33%;
+    margin-top: -8.3%;
+    width: 41.67%;
   }
 `;
 
@@ -49,13 +62,15 @@ export const AboutDescription = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  font-family: ${fonts.epilogue};
+  font-size: 1rem;
+  line-height: 1.375rem;
 
   ${min.tablet} {
     width: 75%;
   }
   ${min.desktop} {
-    width: 33.33%;
     margin-left: 8.3%;
-    margin-right: 8.3%;
+    width: 33.33%;
   }
 `;
