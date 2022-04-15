@@ -1,15 +1,7 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { Container, FlexContainer, Overview, Content } from './styled';
-import {
-  H1,
-  H2,
-  P,
-  PrimaryButton,
-  ButtonText,
-  YELLOW,
-  SecondaryButton,
-} from '../../styles/styles';
+import { H1, H2, P, YELLOW } from '../../styles/styles';
+import Button from '../Button';
 
 const ProjectPreview = ({ project }) => {
   const {
@@ -23,11 +15,9 @@ const ProjectPreview = ({ project }) => {
         <Overview>
           <H1>{name.text}</H1>
           <P>{description.text}</P>
-          <Link to={`/projects/${uid}`}>
-            <PrimaryButton color={YELLOW}>
-              <ButtonText bold>Watch</ButtonText>
-            </PrimaryButton>
-          </Link>
+          <Button to={`/projects/${uid}`} color={YELLOW}>
+            Watch
+          </Button>
         </Overview>
         <Content>
           {works.map((work) => {
@@ -46,9 +36,9 @@ const ProjectPreview = ({ project }) => {
               <div>
                 <img alt={title.text} src={thumbnail_url} />
                 <H2>{title.text}</H2>
-                <Link to={`/works/${uid}`}>
-                  <SecondaryButton>Watch</SecondaryButton>
-                </Link>
+                <Button to={`/works/${uid}`} secondary>
+                  Watch
+                </Button>
               </div>
             );
           })}

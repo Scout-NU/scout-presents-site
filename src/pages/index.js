@@ -2,15 +2,9 @@ import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import Layout from '../components/Layout';
 import ProjectPreview from '../components/ProjectPreview';
-import {
-  ButtonText,
-  MarginContainer,
-  H1,
-  H2,
-  PrimaryButton,
-  YELLOW,
-} from '../styles/styles';
+import { MarginContainer, H1, H2, YELLOW } from '../styles/styles';
 import { SingleWorksDescription } from '../styles/index.styles';
+import Button from '../components/Button';
 
 const IndexPage = () => {
   const pageQuery = useStaticQuery(graphql`
@@ -101,9 +95,7 @@ const IndexPage = () => {
         <SingleWorksDescription>
           {singleWorksDescription.text}
         </SingleWorksDescription>
-        <PrimaryButton color={YELLOW}>
-          <ButtonText bold>Watch</ButtonText>
-        </PrimaryButton>
+        <Button color={YELLOW}>Watch</Button>
       </MarginContainer>
     </Layout>
   );
