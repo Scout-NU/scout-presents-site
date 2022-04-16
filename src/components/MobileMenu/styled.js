@@ -5,7 +5,8 @@ import { min } from '../../styles/breakpoints';
 
 export const Container = styled.div`
   position: fixed;
-  right: 0;
+  transition: right 0.3s ease;
+  right: ${(props) => (props.open ? '0' : '-100%')};
   top: 0;
   width: 100%;
   height: 100%;

@@ -36,7 +36,7 @@ const Nav = () => {
           <Menu />
         </Hamburger>
       </Container>
-      {menuOpen && <MobileMenu handleClose={() => setMenuOpen(false)} />}
+      <MobileMenu open={menuOpen} handleClose={() => setMenuOpen(false)} />
     </StyledNav>
   );
 };

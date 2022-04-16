@@ -5,6 +5,7 @@ import { min } from '../../styles/breakpoints';
 
 export const StyledNav = styled.nav`
   padding: 2rem 0;
+  overflow-x: hidden;
 `;
 
 export const Container = styled(MarginContainer)`

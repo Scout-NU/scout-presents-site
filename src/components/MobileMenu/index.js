@@ -8,8 +8,8 @@ import {
 } from './styled';
 import { X } from 'react-feather';
 
-const MobileMenu = ({ handleClose }) => (
-  <Container>
+const MobileMenu = ({ open, handleClose }) => (
+  <Container open={open}>
     <LinksContainer>
       <CloseButton onClick={handleClose}>
         <X />
