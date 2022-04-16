@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     cursor: url(${Cursor}), auto;
   }
-  a {
+  a, button {
     cursor: url(${CursorPointer}), pointer;
   }
 `;
