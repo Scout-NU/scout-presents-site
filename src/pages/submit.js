@@ -1,6 +1,14 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import Layout from "../components/Layout";
+import { H2, MarginContainer } from "../styles/styles";
+import { PrismicRichText } from "@prismicio/react";
+import {
+  GetInvolvedSection,
+  QuestionsSection,
+  QuestionsText,
+  GetInvolvedText,
+} from "../styles/submit.styles";
 
 const Submit = () => {
   const submitQuery = useStaticQuery(graphql`
@@ -20,7 +28,7 @@ const Submit = () => {
             text
           }
           get_involved {
-            text
+            richText
           }
           header_image {
             url
@@ -87,8 +95,21 @@ const Submit = () => {
 
   return (
     <Layout>
-      <img src={headerImage.url} alt={headerImage.alt} />
-      <h1>{submitTitle.text}</h1>
+      <MarginContainer>
+        <img src={headerImage.url} alt={headerImage.alt} width="100%" />
+        <H2>{submitTitle.text}</H2>
+        <PrismicRichText field={submitIntro.richText} />
+        <GetInvolvedSection>
+          <GetInvolvedText>
+            <PrismicRichText field={getInvolved.richText} />
+          </GetInvolvedText>
+        </GetInvolvedSection>
+        <QuestionsSection>
+          <QuestionsText>
+            <PrismicRichText field={questions.richText} />
+          </QuestionsText>
+        </QuestionsSection>
+      </MarginContainer>
     </Layout>
   );
 };
