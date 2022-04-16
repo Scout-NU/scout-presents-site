@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyledLink, StyledButton, ButtonText, JumboText } from './styled';
-import { BLUE } from '../../styles/styles';
+import { StyledButton, ButtonText, JumboText } from './styled';
+import { BLUE, StyledLink } from '../../styles/styles';
 
 const Button = ({ onClick, to, secondary, color = BLUE, jumbo, children }) => {
   const ButtonComponent = () => (

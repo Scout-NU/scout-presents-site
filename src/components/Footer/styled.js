@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CREAM, BLACK, MarginContainer, RED } from '../../styles/styles';
+import { CREAM, BLACK, MarginContainer, RED, P } from '../../styles/styles';
 import { Instagram, Heart } from 'react-feather';
 import { min } from '../../styles/breakpoints';
 
@@ -18,8 +18,11 @@ export const StyledContainer = styled(MarginContainer)`
 
 export const Links = styled.div`
   flex: 1 0 50%;
+  display: flex;
+  flex-direction: column;
+  color: ${BLACK};
   ${min.tablet} {
-    flex: 0 1 15%;
+    flex: 0 1 18%;
     order: 1;
   }
 `;
@@ -29,10 +32,13 @@ export const InstagramIcon = styled(Instagram)`
 `;
 
 export const ScoutSite = styled.div`
-  flex: 0 1 15%;
+  flex: 0 1 18%;
   text-align: center;
   ${min.tablet} {
     order: 3;
+  }
+  ${min.desktop} {
+    flex: 0 1 15%;
   }
 `;
 
@@ -51,6 +57,10 @@ export const Signature = styled.div`
     order: 2;
     vertical-align: bottom;
   }
+`;
+
+export const StyledP = styled(P)`
+  margin-block: 0.5rem;
 `;
 
 export const HeartIcon = styled(Heart)`

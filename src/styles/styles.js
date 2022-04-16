@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import './styles.css';
 import { min } from './breakpoints';
+import { Link } from 'gatsby';
 
 // Colors
 export const YELLOW = '#ECF955';
@@ -62,4 +63,17 @@ export const MarginContainer = styled.div`
     max-width: 1344px;
     margin: auto;
   }
+`;
+
+const linkStyles = `
+  text-decoration: none;
+  color: inherit;
+`;
+
+export const A = styled.a`
+  ${linkStyles}
+`;
+
+export const StyledLink = styled(Link)`
+  ${linkStyles}
 `;

@@ -7,30 +7,42 @@ import {
   ScoutSite,
   Logo,
   Signature,
+  StyledP,
   HeartIcon,
 } from './styled';
-import { H3, P } from '../../styles/styles';
+import { A } from '../../styles/styles';
 import ScoutLogo from '../../images/scout-logo.svg';
+import Button from '../../components/Button';
 
 const Footer = () => (
   <StyledFooter>
     <StyledContainer>
       <Links>
-        <H3 bold>About</H3>
-        <H3 bold>Explore</H3>
-        <H3 bold>Submit</H3>
-        <H3 bold>
-          <InstagramIcon /> Scout
-        </H3>
+        <Button secondary to="/about">
+          About
+        </Button>
+        <Button secondary to="/explore">
+          Explore
+        </Button>
+        <Button secondary to="/submit">
+          Submit Work
+        </Button>
+        <A href="https://www.instagram.com/neuscout/" target="_blank">
+          <Button secondary>
+            <InstagramIcon /> Scout
+          </Button>
+        </A>
       </Links>
       <ScoutSite>
-        <Logo alt="Scout" src={ScoutLogo} />
-        <H3 bold>Scout's Website</H3>
+        <A href="https://scout.camd.northeastern.edu/" target="_blank">
+          <Logo alt="Scout" src={ScoutLogo} />
+          <Button secondary>Scout's Website</Button>
+        </A>
       </ScoutSite>
       <Signature>
-        <P>
+        <StyledP>
           Made with <HeartIcon /> by Scout
-        </P>
+        </StyledP>
       </Signature>
     </StyledContainer>
   </StyledFooter>
