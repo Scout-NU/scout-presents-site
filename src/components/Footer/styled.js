@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { CREAM, BLACK, MarginContainer, RED, P } from '../../styles/styles';
-import { Instagram, Heart } from 'react-feather';
+import { Heart } from 'react-feather';
 import { min } from '../../styles/breakpoints';
 
 export const StyledFooter = styled.footer`
@@ -25,10 +25,6 @@ export const Links = styled.div`
     flex: 0 1 18%;
     order: 1;
   }
-`;
-
-export const InstagramIcon = styled(Instagram)`
-  vertical-align: bottom;
 `;
 
 export const ScoutSite = styled.div`
