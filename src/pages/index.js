@@ -3,6 +3,9 @@ import * as React from 'react';
 import Layout from '../components/Layout';
 import Hero from '../components/Hero';
 import ProjectPreview from '../components/ProjectPreview';
+import { MarginContainer, H1, H2, YELLOW } from '../styles/styles';
+import { SingleWorksDescription } from '../styles/index.styles';
+import Button from '../components/Button';
 
 const IndexPage = () => {
   const pageQuery = useStaticQuery(graphql`
@@ -78,11 +81,20 @@ const IndexPage = () => {
     <Layout>
       <Hero heading={mainHeading.text} blurb={blurb.text} />
       {projects.map((project) => {
-        return <ProjectPreview project={project.project.document} />;
+        return (
+          <ProjectPreview
+            key={project.project.document.uid}
+            project={project.project.document}
+          />
+        );
       })}
-      <h1>{singleWorksHeading.text}</h1>
-      <p>{singleWorksDescription.text}</p>
-      <button>Watch</button>
+      <MarginContainer>
+        <H1>{singleWorksHeading.text}</H1>
+        <SingleWorksDescription>
+          {singleWorksDescription.text}
+        </SingleWorksDescription>
+        <Button color={YELLOW}>Watch</Button>
+      </MarginContainer>
     </Layout>
   );
 };
