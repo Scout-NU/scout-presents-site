@@ -8,6 +8,9 @@ import {
   QuestionsSection,
   QuestionsText,
   GetInvolvedText,
+  ContentContainer,
+  InformationContainer,
+  FormContainer,
 } from "../styles/submit.styles";
 
 const Submit = () => {
@@ -97,18 +100,68 @@ const Submit = () => {
     <Layout>
       <img src={headerImage.url} alt={headerImage.alt} width="100%" />
       <MarginContainer>
-        <H2>{submitTitle.text}</H2>
-        <PrismicRichText field={submitIntro.richText} />
-        <GetInvolvedSection>
-          <GetInvolvedText>
-            <PrismicRichText field={getInvolved.richText} />
-          </GetInvolvedText>
-        </GetInvolvedSection>
-        <QuestionsSection>
-          <QuestionsText>
-            <PrismicRichText field={questions.richText} />
-          </QuestionsText>
-        </QuestionsSection>
+        <ContentContainer>
+          <InformationContainer>
+            <GetInvolvedSection>
+              <GetInvolvedText>
+                <PrismicRichText field={getInvolved.richText} />
+              </GetInvolvedText>
+            </GetInvolvedSection>
+            <QuestionsSection>
+              <QuestionsText>
+                <PrismicRichText field={questions.richText} />
+              </QuestionsText>
+            </QuestionsSection>
+          </InformationContainer>
+          <FormContainer>
+            <H2>{submitTitle.text}</H2>
+            <PrismicRichText field={submitIntro.richText} />
+            <form
+              name="Submit Work Form"
+              method="POST"
+              data-netlify="true"
+              action="/"
+            >
+              <input type="hidden" name="form-name" value="Submit Work Form" />
+              <input
+                type="text"
+                placeholder={nameLabel.text}
+                name={nameLabel.text}
+              ></input>
+              <input
+                type="text"
+                placeholder={emailLabel.text}
+                name={emailLabel.text}
+              ></input>
+              <input
+                type="text"
+                placeholder={projectTitleLabel.text}
+                name={projectTitleLabel.text}
+              ></input>
+              <input
+                type="text"
+                placeholder={projectMediumLabel.text}
+                name={projectMediumLabel.text}
+              ></input>
+              <input
+                type="text"
+                placeholder={creditsLabel.text}
+                name={creditsLabel.text}
+              ></input>
+              <input
+                type="text"
+                placeholder={equipmentLabel.text}
+                name={equipmentLabel.text}
+              ></input>
+              <input
+                type="text"
+                placeholder={projectDescriptionLabel.text}
+                name={projectDescriptionLabel.text}
+              ></input>
+              <button type="submit">{submitButtonLabel.text}</button>
+            </form>
+          </FormContainer>
+        </ContentContainer>
       </MarginContainer>
     </Layout>
   );
