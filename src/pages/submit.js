@@ -95,8 +95,8 @@ const Submit = () => {
 
   return (
     <Layout>
+      <img src={headerImage.url} alt={headerImage.alt} width="100%" />
       <MarginContainer>
-        <img src={headerImage.url} alt={headerImage.alt} width="100%" />
         <H2>{submitTitle.text}</H2>
         <PrismicRichText field={submitIntro.richText} />
         <GetInvolvedSection>
