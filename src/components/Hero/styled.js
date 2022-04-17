@@ -1,7 +1,8 @@
 import styled, { keyframes, css } from 'styled-components';
-import { BLUE, Display, H2 } from '../../styles/styles';
+import { min } from '../../styles/breakpoints';
+import { BLUE, Display } from '../../styles/styles';
 
-const FRAME_HEIGHT = 2220;
+const frameHeight = (props) => (props.mobile ? 1284 : 2220);
 
 /**
  * how long it should take an element to fall from the top of the frame to the bottom
@@ -11,7 +12,7 @@ const FRAME_HEIGHT = 2220;
  * elements with lower layer number are furthest from the eye and
  * appear to fall more slowly
  */
-const animationDuration = (layer) => 20 / layer;
+const animationDuration = (props) => 20;
 
 /**
  * s = d/t, using frame height as the distance we want elements to travel and
@@ -19,7 +20,7 @@ const animationDuration = (layer) => 20 / layer;
  *
  * use the element's layer on the screen to calculate dynamic speeds
  */
-const speed = (layer) => FRAME_HEIGHT / animationDuration(layer);
+const speed = (props) => frameHeight(props) / animationDuration(props);
 
 /**
  * since each element starts at a different y position, they need dynamic durations to
@@ -31,7 +32,7 @@ const speed = (layer) => FRAME_HEIGHT / animationDuration(layer);
  * t = d/s
  */
 const fallDuration = (props) =>
-  (FRAME_HEIGHT - props.startPos[0] - props.dimensions[1]) / speed(props.layer);
+  (frameHeight(props) - props.startPos[0] - props.dimensions[1]) / speed(props);
 
 /**
  * uses the frame height to determine the distance each element needs to fall
@@ -39,14 +40,14 @@ const fallDuration = (props) =>
  *
  * t = d/s
  */
-const loopDuration = (props) => FRAME_HEIGHT / speed(props.layer);
+const loopDuration = (props) => frameHeight(props) / speed(props);
 
 /**
  * this animation iterates only once since each element starts at a different y position
  */
-const fallAnimation = (height) => keyframes`
+const fallAnimation = (props) => keyframes`
   to {
-    top: ${FRAME_HEIGHT - height}px;
+    top: ${frameHeight(props) - props.dimensions[1]}px;
   }
 `;
 
@@ -55,18 +56,18 @@ const fallAnimation = (height) => keyframes`
  *
  * resets the element's position at the top of the frame so the loop is smooth
  */
-const loopAnimation = (height) => keyframes`
+const loopAnimation = (props) => keyframes`
   from {
-    top: -${height}px;
+    top: -${props.dimensions[1]}px;
   }
   to {
-    top: ${FRAME_HEIGHT - height}px;
+    top: ${frameHeight(props) - props.dimensions[1]}px;
   }
 `;
 
 const animationName = css`
-  animation-name: ${(props) => fallAnimation(props.dimensions[1])},
-    ${(props) => loopAnimation(props.dimensions[1])};
+  animation-name: ${(props) => fallAnimation(props)},
+    ${(props) => loopAnimation(props)};
 `;
 
 /**
@@ -79,9 +80,9 @@ const animationName = css`
  */
 export const Image = styled.img`
   position: absolute;
-  top: ${(props) => (props.startPos[0] / 2220) * 100}%;
-  left: ${(props) => (props.startPos[1] / 1440) * 100}%;
-  width: ${(props) => (props.dimensions[0] / 1440) * 100}%;
+  top: ${(props) => props.startPos[0]}px;
+  left: ${(props) => props.startPos[1]}px;
+  width: ${(props) => props.dimensions[0]}px;
   ${animationName}
   animation-duration: ${fallDuration}s, ${loopDuration}s;
   animation-delay: 0s, ${fallDuration}s;
@@ -92,15 +93,31 @@ export const Image = styled.img`
 
 export const Container = styled.div`
   width: 100%;
-  height: 841px;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+`;
+
+export const Frame = styled.div`
+  width: 768px;
+  height: 424px;
+  flex-shrink: 0;
   background-color: ${BLUE};
   position: relative;
   overflow: hidden;
+
+  ${min.tablet} {
+    width: 1440px;
+    height: 693px;
+  }
+  ${min.desktop} {
+    height: 841px;
+  }
 `;
 
 const baseStyles = `
   position: absolute;
-  background-color: ${BLUE};
+  // background-color: ${BLUE};
   border-radius: 23px;
   z-index: 4;
 `;
@@ -112,12 +129,4 @@ export const Title = styled(Display)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-`;
-
-export const Blurb = styled(H2)`
-  ${baseStyles}
-  padding: 0.5rem;
-  left: 3rem;
-  bottom: 3rem;
-  width: 27.25rem;
 `;

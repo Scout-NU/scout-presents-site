@@ -80,6 +80,9 @@ const IndexPage = () => {
   return (
     <Layout>
       <Hero heading={mainHeading.text} blurb={blurb.text} />
+      <MarginContainer>
+        <H2>{blurb.text}</H2>
+      </MarginContainer>
       {projects.map((project) => {
         return (
           <ProjectPreview
