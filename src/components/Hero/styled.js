@@ -2,7 +2,12 @@ import styled, { keyframes, css } from 'styled-components';
 import { min } from '../../styles/breakpoints';
 import { BLUE, Display } from '../../styles/styles';
 
-const frameHeight = (props) => (props.mobile ? 1284 : 2220);
+/**
+ * the height of the invisible frame controlling the falling elements
+ *
+ * returns a dynamic height based on device size
+ */
+const frameHeight = (isMobile) => (isMobile ? 1284 : 2220);
 
 /**
  * how long it should take an element to fall from the top of the frame to the bottom
@@ -12,7 +17,7 @@ const frameHeight = (props) => (props.mobile ? 1284 : 2220);
  * elements with lower layer number are furthest from the eye and
  * appear to fall more slowly
  */
-const animationDuration = (props) => 20;
+const animationDuration = (layer) => 20 / layer;
 
 /**
  * s = d/t, using frame height as the distance we want elements to travel and
@@ -20,7 +25,8 @@ const animationDuration = (props) => 20;
  *
  * use the element's layer on the screen to calculate dynamic speeds
  */
-const speed = (props) => frameHeight(props) / animationDuration(props);
+const speed = (isMobile, layer) =>
+  frameHeight(isMobile) / animationDuration(layer);
 
 /**
  * since each element starts at a different y position, they need dynamic durations to
@@ -32,7 +38,8 @@ const speed = (props) => frameHeight(props) / animationDuration(props);
  * t = d/s
  */
 const fallDuration = (props) =>
-  (frameHeight(props) - props.startPos[0] - props.dimensions[1]) / speed(props);
+  (frameHeight(props.mobile) - props.startPos[1] - props.dimensions[1]) /
+  speed(props.mobile, props.layer);
 
 /**
  * uses the frame height to determine the distance each element needs to fall
@@ -40,34 +47,39 @@ const fallDuration = (props) =>
  *
  * t = d/s
  */
-const loopDuration = (props) => frameHeight(props) / speed(props);
+const loopDuration = (props) =>
+  frameHeight(props.mobile) / speed(props.mobile, props.layer);
 
 /**
- * this animation iterates only once since each element starts at a different y position
+ * keyframes!
+ *
+ * this animation iterates only once since each element starts at a different nonzero y position
  */
-const fallAnimation = (props) => keyframes`
+const fallAnimation = (isMobile, imgHeight) => keyframes`
   to {
-    top: ${frameHeight(props) - props.dimensions[1]}px;
+    top: ${frameHeight(isMobile) - imgHeight}px;
   }
 `;
 
 /**
+ * keyframes!
+ *
  * this animation repeats on a loop once the first animation ends
  *
  * resets the element's position at the top of the frame so the loop is smooth
  */
-const loopAnimation = (props) => keyframes`
+const loopAnimation = (isMobile, imgHeight) => keyframes`
   from {
-    top: -${props.dimensions[1]}px;
+    top: -${imgHeight}px;
   }
   to {
-    top: ${frameHeight(props) - props.dimensions[1]}px;
+    top: ${frameHeight(isMobile) - imgHeight}px;
   }
 `;
 
 const animationName = css`
-  animation-name: ${(props) => fallAnimation(props)},
-    ${(props) => loopAnimation(props)};
+  animation-name: ${(props) => fallAnimation(props.mobile, props.dimensions[1])},
+    ${(props) => loopAnimation(props.mobile, props.dimensions[1])};
 `;
 
 /**
@@ -80,19 +92,20 @@ const animationName = css`
  */
 export const Image = styled.img`
   position: absolute;
-  top: ${(props) => props.startPos[0]}px;
-  left: ${(props) => props.startPos[1]}px;
+  top: ${(props) => props.startPos[1]}px;
+  left: ${(props) => props.startPos[0]}px;
   width: ${(props) => props.dimensions[0]}px;
+  z-index: ${(props) => props.layer};
   ${animationName}
   animation-duration: ${fallDuration}s, ${loopDuration}s;
   animation-delay: 0s, ${fallDuration}s;
   animation-timing-function: linear;
   animation-iteration-count: 1, infinite;
-  z-index: ${(props) => props.layer};
 `;
 
 export const Container = styled.div`
   width: 100%;
+  background-color: ${BLUE};
   overflow-x: hidden;
   display: flex;
   justify-content: center;
@@ -102,7 +115,6 @@ export const Frame = styled.div`
   width: 768px;
   height: 424px;
   flex-shrink: 0;
-  background-color: ${BLUE};
   position: relative;
   overflow: hidden;
 
@@ -115,15 +127,11 @@ export const Frame = styled.div`
   }
 `;
 
-const baseStyles = `
+export const Title = styled(Display)`
   position: absolute;
-  // background-color: ${BLUE};
+  background-color: ${BLUE};
   border-radius: 23px;
   z-index: 4;
-`;
-
-export const Title = styled(Display)`
-  ${baseStyles}
   padding: 0.75rem;
   padding-top: 0;
   top: 50%;
