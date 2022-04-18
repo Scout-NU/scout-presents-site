@@ -8,9 +8,9 @@ export const GlobalStyle = createGlobalStyle`
     color: ${CREAM};
     background-color: ${BLACK};
     margin: 0;
-    cursor: url(${Cursor}), auto;
+    cursor: url(${Cursor}) 20 20, auto;
   }
   a, button {
-    cursor: url(${CursorPointer}), pointer;
+    cursor: url(${CursorPointer}) 20 20, pointer;
   }
 `;
