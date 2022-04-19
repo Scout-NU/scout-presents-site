@@ -33,7 +33,7 @@ const ProjectPreview = ({ project }) => {
               },
             } = work;
             return (
-              <div>
+              <div key={uid}>
                 <img alt={title.text} src={thumbnail_url} />
                 <H2>{title.text}</H2>
                 <Button to={`/works/${uid}`} secondary>
