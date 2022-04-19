@@ -14,6 +14,7 @@ const primaryStyles = css`
   border-radius: 2px;
   border: 2px solid ${(props) => props.color};
   background-color: ${(props) => props.color};
+  text-transform: lowercase;
   &:hover {
     background-color: transparent;
     color: ${(props) => props.color};
@@ -33,16 +34,15 @@ const secondaryStyles = css`
 
 export const StyledButton = styled.button`
   ${(props) => (props.secondary ? secondaryStyles : primaryStyles)}
-  cursor: url(${Cursor}), pointer;
+  cursor: url(${Cursor}) 20 20, pointer;
 `;
 
 // offsets the skew from transforming the button
 const textStyles = css`
   ${(props) => !props.secondary && 'transform: skew(-15deg);'}
-  text-transform: lowercase;
   margin-block-start: 0;
   margin-block-end: 0;
-  cursor: url(${Cursor}), pointer;
+  cursor: url(${Cursor}) 20 20, pointer;
 `;
 
 export const ButtonText = styled(H3)`
