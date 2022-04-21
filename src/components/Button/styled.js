@@ -1,11 +1,6 @@
 import styled, { css } from 'styled-components';
-import { Link } from 'gatsby';
 import { H1, H3, YELLOW, BLACK, CREAM } from '../../styles/styles';
 import Cursor from '../../images/cursor-pointer.svg';
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
-`;
 
 const primaryStyles = css`
   padding: 0.5rem 1.5rem;
@@ -23,7 +18,7 @@ const primaryStyles = css`
 
 const secondaryStyles = css`
   padding: 0.5rem 0;
-  color: ${CREAM};
+  color: inherit;
   background-color: transparent;
   border: 0px;
   border-bottom: 2px solid transparent;
