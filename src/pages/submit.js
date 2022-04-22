@@ -187,8 +187,8 @@ const Submit = () => {
                 placeholder={equipmentLabel.text}
                 name={equipmentLabel.text}
               ></Input>
-              <PrismicRichText field={callToAction.richText} />
               <button type="submit">{submitButtonLabel.text}</button>
+              <PrismicRichText field={callToAction.richText} />
             </form>
           </FormContainer>
         </ContentContainer>
