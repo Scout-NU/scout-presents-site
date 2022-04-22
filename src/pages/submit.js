@@ -11,9 +11,25 @@ import {
   ContentContainer,
   InformationContainer,
   FormContainer,
+  FormRow,
+  Input,
+  TextArea,
+  SubmitDescription,
 } from "../styles/submit.styles";
+import Button from "../components/Button";
 
 const Submit = () => {
+  const [file, setFile] = React.useState(null);
+
+  const fileInput = React.useRef(null);
+
+  const onChange = async (e) => {
+    e.preventDefault();
+    if (e.target.files && e.target.files.length > 0) {
+      setFile(e.target.files[0]);
+    }
+  };
+
   const submitQuery = useStaticQuery(graphql`
     query submitQuery {
       prismicSubmitWorkPage {
@@ -115,49 +131,63 @@ const Submit = () => {
           </InformationContainer>
           <FormContainer>
             <H2>{submitTitle.text}</H2>
-            <PrismicRichText field={submitIntro.richText} />
-            <form
-              name="Submit Work Form"
-              method="POST"
-              data-netlify="true"
-              action="/"
-            >
+            <SubmitDescription>
+              <PrismicRichText field={submitIntro.richText} />
+            </SubmitDescription>
+            <form name="Submit Work Form" method="POST" data-netlify="true">
               <input type="hidden" name="form-name" value="Submit Work Form" />
-              <input
-                type="text"
-                placeholder={nameLabel.text}
-                name={nameLabel.text}
-              ></input>
-              <input
-                type="text"
-                placeholder={emailLabel.text}
-                name={emailLabel.text}
-              ></input>
-              <input
+              <FormRow>
+                <Input
+                  type="text"
+                  placeholder={nameLabel.text}
+                  name={nameLabel.text}
+                ></Input>
+                <Input
+                  type="text"
+                  placeholder={emailLabel.text}
+                  name={emailLabel.text}
+                ></Input>
+              </FormRow>
+              <Input
                 type="text"
                 placeholder={projectTitleLabel.text}
                 name={projectTitleLabel.text}
-              ></input>
-              <input
+              ></Input>
+              <Input
                 type="text"
                 placeholder={projectMediumLabel.text}
                 name={projectMediumLabel.text}
-              ></input>
-              <input
+              ></Input>
+              <Input
                 type="text"
                 placeholder={creditsLabel.text}
                 name={creditsLabel.text}
-              ></input>
-              <input
+              ></Input>
+              <Input
                 type="text"
                 placeholder={equipmentLabel.text}
                 name={equipmentLabel.text}
-              ></input>
-              <input
+              ></Input>
+              <TextArea
                 type="text"
                 placeholder={projectDescriptionLabel.text}
                 name={projectDescriptionLabel.text}
-              ></input>
+              ></TextArea>
+              {/*  <input
+                type="file"
+                ref={fileInput}
+                onChange={onChange}
+                style={{ display: "none" }}
+              />
+              <Button onClick={() => fileInput.current.click()}>
+                {uploadButtonLabel.text}
+              </Button> */}
+              <Input
+                type="file"
+                placeholder={equipmentLabel.text}
+                name={equipmentLabel.text}
+              ></Input>
+              <PrismicRichText field={callToAction.richText} />
               <button type="submit">{submitButtonLabel.text}</button>
             </form>
           </FormContainer>
