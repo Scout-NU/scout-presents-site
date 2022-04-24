@@ -134,7 +134,12 @@ const Submit = () => {
             <SubmitDescription>
               <PrismicRichText field={submitIntro.richText} />
             </SubmitDescription>
-            <form name="Submit Work Form" method="POST" data-netlify="true">
+            <form
+              name="Submit Work Form"
+              method="POST"
+              data-netlify="true"
+              action="/submit"
+            >
               <input type="hidden" name="form-name" value="Submit Work Form" />
               <FormRow>
                 <Input
@@ -173,22 +178,32 @@ const Submit = () => {
                 placeholder={projectDescriptionLabel.text}
                 name={projectDescriptionLabel.text}
               ></TextArea>
-              {/*  <input
-                type="file"
-                ref={fileInput}
-                onChange={onChange}
-                style={{ display: "none" }}
-              />
-              <Button onClick={() => fileInput.current.click()}>
-                {uploadButtonLabel.text}
-              </Button> */}
-              <Input
-                type="file"
-                placeholder={equipmentLabel.text}
-                name={equipmentLabel.text}
-              ></Input>
-              <button type="submit">{submitButtonLabel.text}</button>
-              <PrismicRichText field={callToAction.richText} />
+              <form>
+                <label htmlFor="contained-button-file">
+                  <Input
+                    accept="image/*"
+                    id="contained-button-file"
+                    multiple
+                    type="file"
+                  />
+                  <Button variant="contained" component="span">
+                    Upload
+                  </Button>
+                </label>
+              </form>
+              <FormRow>
+                <input
+                  type="file"
+                  placeholder={equipmentLabel.text}
+                  name={equipmentLabel.text}
+                ></input>
+                <SubmitDescription>
+                  <PrismicRichText field={callToAction.richText} />
+                </SubmitDescription>
+              </FormRow>
+              <Button type="submit" color="yellow">
+                {submitButtonLabel.text}
+              </Button>
             </form>
           </FormContainer>
         </ContentContainer>
