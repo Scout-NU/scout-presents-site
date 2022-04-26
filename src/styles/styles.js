@@ -18,21 +18,6 @@ export const fonts = {
   IBMPlexMono: 'IBM Plex Mono',
 };
 
-export const Display = styled.h1`
-  font-family: ${fonts.cubano};
-  font-size: 4rem;
-  line-height: 2.5rem;
-  margin-block: 0;
-  ${min.tablet} {
-    font-size: 7.5rem;
-    line-height: 4.75rem;
-  }
-  ${min.desktop} {
-    font-size: 8.5rem;
-    line-height: 7.5rem;
-  }
-`;
-
 export const H1 = styled.h1`
   font-family: ${fonts.cubano};
   font-size: 3.25rem;

@@ -1,6 +1,6 @@
 import styled, { keyframes, css } from 'styled-components';
 import { min } from '../../styles/breakpoints';
-import { BLUE, Display } from '../../styles/styles';
+import { BLUE } from '../../styles/styles';
 
 /**
  * the height of the invisible frame controlling the falling elements
@@ -127,14 +127,17 @@ export const Frame = styled.div`
   }
 `;
 
-export const Title = styled(Display)`
+export const LogoImage = styled.img`
   position: absolute;
-  background-color: ${BLUE};
-  border-radius: 23px;
   z-index: 4;
-  padding: 0.75rem;
-  padding-top: 0;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 18rem;
+  ${min.tablet} {
+    width: 36rem;
+  }
+  ${min.desktop} {
+    width: 40rem;
+  }
 `;
