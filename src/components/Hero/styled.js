@@ -90,7 +90,7 @@ const animationName = css`
  *
  * the first animation iterates once and the second iterates on a loop
  */
-export const Image = styled.img`
+const imageProps = css`
   position: absolute;
   top: ${(props) => props.startPos[1]}px;
   left: ${(props) => props.startPos[0]}px;
@@ -101,6 +101,21 @@ export const Image = styled.img`
   animation-delay: 0s, ${fallDuration}s;
   animation-timing-function: linear;
   animation-iteration-count: 1, infinite;
+`;
+
+export const Image = styled.img`
+  ${imageProps}
+  display: none;
+  ${min.tablet} {
+    display: block;
+  }
+`;
+
+export const MobileImage = styled.img`
+  ${imageProps}
+  ${min.tablet} {
+    display: none;
+  }
 `;
 
 export const Container = styled.div`
