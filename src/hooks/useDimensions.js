@@ -8,6 +8,7 @@ const getDimensions = () => {
       height,
     };
   }
+  return { width: 0, height: 0 };
 };
 
 const useDimensions = () => {
