@@ -90,7 +90,7 @@ const animationName = css`
  *
  * the first animation iterates once and the second iterates on a loop
  */
-const imageProps = css`
+export const Image = styled.img`
   position: absolute;
   top: ${(props) => props.startPos[1]}px;
   left: ${(props) => props.startPos[0]}px;
@@ -103,21 +103,6 @@ const imageProps = css`
   animation-iteration-count: 1, infinite;
 `;
 
-export const Image = styled.img`
-  ${imageProps}
-  display: none;
-  ${min.tablet} {
-    display: block;
-  }
-`;
-
-export const MobileImage = styled.img`
-  ${imageProps}
-  ${min.tablet} {
-    display: none;
-  }
-`;
-
 export const Container = styled.div`
   width: 100%;
   background-color: ${BLUE};
@@ -126,14 +111,28 @@ export const Container = styled.div`
   justify-content: center;
 `;
 
-export const Frame = styled.div`
-  width: 768px;
-  height: 424px;
+const frameStyles = css`
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
+`;
+
+export const MobileFrame = styled.div`
+  ${frameStyles}
+  width: 768px;
+  height: 424px;
 
   ${min.tablet} {
+    display: none;
+  }
+`;
+
+export const Frame = styled.div`
+  ${frameStyles}
+  display: none;
+
+  ${min.tablet} {
+    display: block;
     width: 1440px;
     height: 693px;
   }
