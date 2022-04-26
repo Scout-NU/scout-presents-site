@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
+import { window } from 'browser-monads';
 
 const getDimensions = () => {
-  if (typeof window !== 'undefined') {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
-  return { width: 0, height: 0 };
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height,
+  };
 };
 
 const useDimensions = () => {
