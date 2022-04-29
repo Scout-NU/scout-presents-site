@@ -152,6 +152,6 @@ export const LogoImage = styled.img`
     width: 36rem;
   }
   ${min.desktop} {
-    width: 40rem;
+    width: 50rem;
   }
 `;
