@@ -1,32 +1,31 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import parse from 'html-react-parser';
 import Layout from '../../components/Layout';
-import { PrismicRichText } from '@prismicio/react';
+import Video from '../../components/Video';
 
 const VideoPage = ({ data }) => {
   if (!data) return null;
   const {
     prismicVideo: {
       data: {
-        title,
+        title: { text: title },
         embed,
-        project: {
-          document: {
-            data: { name: projectName },
-          },
-        },
-        details,
+        project: { document: project },
+        details: { richText: details },
+        date_published: datePublished,
       },
     },
   } = data;
 
   return (
     <Layout>
-      {parse(embed.html)}
-      <h1>{title.text}</h1>
-      <p>{projectName.text}</p>
-      <PrismicRichText field={details.richText} />
+      <Video
+        title={title}
+        embed={embed}
+        details={details}
+        project={project}
+        datePublished={datePublished}
+      />
     </Layout>
   );
 };
@@ -40,10 +39,13 @@ export const query = graphql`
         }
         embed {
           html
+          upload_date(formatString: "MMMM DD, YYYY")
         }
+        date_published(formatString: "MMMM DD, YYYY")
         project {
           document {
             ... on PrismicProject {
+              uid
               data {
                 name {
                   text
