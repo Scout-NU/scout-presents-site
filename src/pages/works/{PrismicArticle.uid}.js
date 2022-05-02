@@ -1,8 +1,7 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import parse from "html-react-parser";
 import Layout from "../../components/Layout";
-import { PrismicRichText } from "@prismicio/react";
+import Article from "../../components/Article";
 
 const ArticlePage = ({ data }) => {
   if (!data) return null;
@@ -21,7 +20,16 @@ const ArticlePage = ({ data }) => {
 
   return (
     <Layout>
-      <h1>{title.text}</h1>
+      <Article
+        title={title}
+        content={articleContent}
+        author={author}
+        imageUrl={imageUrl}
+        imageAlt={imageAlt}
+        imageCaption={imageCaption}
+        secondaryImageUrl={secondaryImageUrl}
+        secondaryImageAlt={secondaryImageAlt}
+      />
     </Layout>
   );
 };
