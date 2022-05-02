@@ -19,3 +19,7 @@ export const StyledP = styled(P)`
   width: 100%;
   margin-block: 0;
 `;
+
+export const StyledImage = styled.img`
+  width: 100%;
+`;

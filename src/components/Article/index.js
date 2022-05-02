@@ -1,7 +1,7 @@
 import React from "react";
 import { PrismicRichText } from "@prismicio/react";
 import { H1, P, MarginContainer } from "../../styles/styles";
-import { ArticleContainer, Section, StyledP } from "./styled";
+import { ArticleContainer, Section, StyledP, StyledImage } from "./styled";
 
 const Article = ({
   title,
@@ -10,8 +10,6 @@ const Article = ({
   imageUrl,
   imageAlt,
   imageCaption,
-  secondaryImageUrl,
-  secondaryImageAlt,
 }) => {
   return (
     <MarginContainer>
@@ -21,14 +19,13 @@ const Article = ({
           <P>{author}</P>
         </Section>
         <Section>
-          <img src={imageUrl} alt={imageAlt} width="100%" />
+          <StyledImage src={imageUrl} alt={imageAlt} />
           <P>{imageCaption} </P>
         </Section>
         <Section>
           <StyledP>
             <PrismicRichText field={content} />
           </StyledP>
-          <img src={secondaryImageUrl} alt={secondaryImageAlt} />
         </Section>
       </ArticleContainer>
     </MarginContainer>

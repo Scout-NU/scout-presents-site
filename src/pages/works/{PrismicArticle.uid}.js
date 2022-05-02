@@ -13,7 +13,6 @@ const ArticlePage = ({ data }) => {
         author: { text: author },
         image: { url: imageUrl, alt: imageAlt },
         image_caption: { text: imageCaption },
-        secondary_image: { url: secondaryImageUrl, alt: secondaryImageAlt },
       },
     },
   } = data;
@@ -27,8 +26,6 @@ const ArticlePage = ({ data }) => {
         imageUrl={imageUrl}
         imageAlt={imageAlt}
         imageCaption={imageCaption}
-        secondaryImageUrl={secondaryImageUrl}
-        secondaryImageAlt={secondaryImageAlt}
       />
     </Layout>
   );
@@ -50,10 +47,6 @@ export const articleQuery = graphql`
         }
         image_caption {
           text
-        }
-        secondary_image {
-          url
-          alt
         }
         title {
           text
