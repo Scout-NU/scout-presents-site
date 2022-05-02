@@ -1,9 +1,10 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import Layout from "../components/Layout";
-import { H2, MarginContainer } from "../styles/styles";
+import { H2, YELLOW, MarginContainer } from "../styles/styles";
 import { PrismicRichText } from "@prismicio/react";
 import {
+  HeaderImage,
   GetInvolvedSection,
   QuestionsSection,
   QuestionsText,
@@ -15,21 +16,16 @@ import {
   Input,
   TextArea,
   SubmitDescription,
+  HiddenInput,
+  UploadButton,
+  UploadButtonText,
+  UploadIcon,
+  PaddedInput,
+  SubmitContainer,
 } from "../styles/submit.styles";
 import Button from "../components/Button";
 
 const Submit = () => {
-  const [file, setFile] = React.useState(null);
-
-  const fileInput = React.useRef(null);
-
-  const onChange = async (e) => {
-    e.preventDefault();
-    if (e.target.files && e.target.files.length > 0) {
-      setFile(e.target.files[0]);
-    }
-  };
-
   const submitQuery = useStaticQuery(graphql`
     query submitQuery {
       prismicSubmitWorkPage {
@@ -80,10 +76,6 @@ const Submit = () => {
           upload_button_label {
             text
           }
-          upload_icon {
-            alt
-            url
-          }
         }
       }
     }
@@ -107,14 +99,13 @@ const Submit = () => {
         submit_intro: submitIntro,
         submit_title: submitTitle,
         upload_button_label: uploadButtonLabel,
-        upload_icon: uploadIcon,
       },
     },
   } = submitQuery;
 
   return (
     <Layout>
-      <img src={headerImage.url} alt={headerImage.alt} width="100%" />
+      <HeaderImage src={headerImage.url} alt={headerImage.alt} />
       <MarginContainer>
         <ContentContainer>
           <InformationContainer>
@@ -142,68 +133,52 @@ const Submit = () => {
             >
               <input type="hidden" name="form-name" value="Submit Work Form" />
               <FormRow>
-                <Input
-                  type="text"
+                <PaddedInput
                   placeholder={nameLabel.text}
                   name={nameLabel.text}
-                ></Input>
-                <Input
-                  type="text"
+                ></PaddedInput>
+                <PaddedInput
                   placeholder={emailLabel.text}
                   name={emailLabel.text}
-                ></Input>
+                ></PaddedInput>
               </FormRow>
               <Input
-                type="text"
                 placeholder={projectTitleLabel.text}
                 name={projectTitleLabel.text}
               ></Input>
               <Input
-                type="text"
                 placeholder={projectMediumLabel.text}
                 name={projectMediumLabel.text}
               ></Input>
               <Input
-                type="text"
                 placeholder={creditsLabel.text}
                 name={creditsLabel.text}
               ></Input>
               <Input
-                type="text"
                 placeholder={equipmentLabel.text}
                 name={equipmentLabel.text}
               ></Input>
               <TextArea
-                type="text"
                 placeholder={projectDescriptionLabel.text}
                 name={projectDescriptionLabel.text}
               ></TextArea>
-              <form>
-                <label htmlFor="contained-button-file">
-                  <Input
-                    accept="image/*"
-                    id="contained-button-file"
-                    multiple
-                    type="file"
-                  />
-                  <Button variant="contained" component="span">
-                    Upload
-                  </Button>
-                </label>
-              </form>
               <FormRow>
-                <input
-                  type="file"
-                  placeholder={equipmentLabel.text}
-                  name={equipmentLabel.text}
-                ></input>
+                <UploadButton>
+                  <HiddenInput type="file" />
+                  <UploadButtonText>
+                    <UploadIcon />
+                    {uploadButtonLabel.text}
+                  </UploadButtonText>
+                </UploadButton>
                 <SubmitDescription>
                   <PrismicRichText field={callToAction.richText} />
                 </SubmitDescription>
               </FormRow>
-              <Button type="submit" color="yellow">
-                {submitButtonLabel.text}
-              </Button>
+              <SubmitContainer>
+                <Button type="submit" color={YELLOW}>
+                  {submitButtonLabel.text}
+                </Button>
+              </SubmitContainer>
             </form>
           </FormContainer>
         </ContentContainer>
