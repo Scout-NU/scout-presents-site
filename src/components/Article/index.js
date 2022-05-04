@@ -23,9 +23,12 @@ const Article = ({
           <P>{imageCaption} </P>
         </Section>
         <Section>
-          <StyledP>
-            <PrismicRichText field={content} />
-          </StyledP>
+          <PrismicRichText
+            field={content}
+            components={{
+              paragraph: ({ children }) => <StyledP>{children}</StyledP>,
+            }}
+          />
         </Section>
       </ArticleContainer>
     </MarginContainer>
