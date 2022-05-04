@@ -40,7 +40,8 @@ export const FormContainer = styled.div`
 export const Input = styled.input`
   type: text;
   background: ${BLACK};
-  border: solid ${CREAM};
+  border: solid ${CREAM} 1px;
+  border-radius: 2px;
   color: ${CREAM};
   padding: 4%;
   font-family: ${fonts.IBMPlexMono};
@@ -48,7 +49,7 @@ export const Input = styled.input`
   line-height: 1.375rem;
   margin-bottom: 1rem;
   width: 92%;
-  outline: none;
+  outline: ${BLUE} 1px;
 `;
 
 export const TextArea = styled.textarea`
@@ -119,11 +120,8 @@ export const GetInvolvedText = styled(P)`
   }
 `;
 
-export const SubmitDescription = styled.div`
+export const SubmitDescription = styled(P)`
   width: 100%;
-  font-family: ${fonts.epilogue};
-  font-size: 1rem;
-  line-height: 1.375rem;
   ${min.tablet} {
     width: 65%;
   }
@@ -145,7 +143,7 @@ export const UploadButton = styled.label`
   border-radius: 2px;
   border: 2px solid ${YELLOW};
   margin-left: 0.5rem;
-  margin-right: 1rem;
+  margin-right: 2rem;
   text-align: center;
   margin-top: 1rem;
   ${min.tablet} {

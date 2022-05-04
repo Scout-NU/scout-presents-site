@@ -110,21 +110,36 @@ const Submit = () => {
         <ContentContainer>
           <InformationContainer>
             <GetInvolvedSection>
-              <GetInvolvedText>
-                <PrismicRichText field={getInvolved.richText} />
-              </GetInvolvedText>
+              <PrismicRichText
+                field={getInvolved.richText}
+                components={{
+                  paragraph: ({ children }) => (
+                    <GetInvolvedText>{children}</GetInvolvedText>
+                  ),
+                }}
+              />
             </GetInvolvedSection>
             <QuestionsSection>
-              <QuestionsText>
-                <PrismicRichText field={questions.richText} />
-              </QuestionsText>
+              <PrismicRichText
+                field={questions.richText}
+                components={{
+                  paragraph: ({ children }) => (
+                    <QuestionsText>{children}</QuestionsText>
+                  ),
+                }}
+              />
             </QuestionsSection>
           </InformationContainer>
           <FormContainer>
             <H2>{submitTitle.text}</H2>
-            <SubmitDescription>
-              <PrismicRichText field={submitIntro.richText} />
-            </SubmitDescription>
+            <PrismicRichText
+              field={submitIntro.richText}
+              components={{
+                paragraph: ({ children }) => (
+                  <SubmitDescription>{children}</SubmitDescription>
+                ),
+              }}
+            />
             <form
               name="Submit Work Form"
               method="POST"
@@ -170,9 +185,14 @@ const Submit = () => {
                     {uploadButtonLabel.text}
                   </UploadButtonText>
                 </UploadButton>
-                <SubmitDescription>
-                  <PrismicRichText field={callToAction.richText} />
-                </SubmitDescription>
+                <PrismicRichText
+                  field={callToAction.richText}
+                  components={{
+                    paragraph: ({ children }) => (
+                      <SubmitDescription>{children}</SubmitDescription>
+                    ),
+                  }}
+                />
               </FormRow>
               <SubmitContainer>
                 <Button type="submit" color={YELLOW}>
