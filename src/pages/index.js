@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import Layout from '../components/Layout';
+import Hero from '../components/Hero';
 import ProjectPreview from '../components/ProjectPreview';
 import { MarginContainer, H1, H2, YELLOW } from '../styles/styles';
 import { SingleWorksDescription } from '../styles/index.styles';
@@ -78,8 +79,8 @@ const IndexPage = () => {
 
   return (
     <Layout>
+      <Hero heading={mainHeading.text} blurb={blurb.text} />
       <MarginContainer>
-        <H1>{mainHeading.text}</H1>
         <H2>{blurb.text}</H2>
       </MarginContainer>
       {projects.map((project) => {

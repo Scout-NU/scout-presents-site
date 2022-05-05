@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'gatsby';
-import { CREAM, MarginContainer } from '../../styles/styles';
+import { CREAM, MarginContainer, StyledLink } from '../../styles/styles';
 import { min } from '../../styles/breakpoints';
 
 export const StyledNav = styled.nav`
@@ -21,7 +20,7 @@ export const Links = styled.div`
   }
 `;
 
-export const InlineLink = styled(Link)`
+export const InlineLink = styled(StyledLink)`
   ${min.desktop} {
     margin-right: 3rem;
   }
