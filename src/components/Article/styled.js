@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BLUE, MarginContainer, P, H2, H3 } from "../../styles/styles";
+import { P } from "../../styles/styles";
 import { min } from "../../styles/breakpoints";
 
 export const ArticleContainer = styled.div`
