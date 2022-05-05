@@ -1,7 +1,7 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import Layout from "../components/Layout";
-import { H2, YELLOW, MarginContainer } from "../styles/styles";
+import { H2, P, H3, YELLOW, MarginContainer } from "../styles/styles";
 import { PrismicRichText } from "@prismicio/react";
 import {
   HeaderImage,
@@ -94,7 +94,7 @@ const Submit = () => {
         project_description_label: projectDescriptionLabel,
         project_medium_label: projectMediumLabel,
         project_title_label: projectTitleLabel,
-        questions: questions,
+        questions,
         submit_button_label: submitButtonLabel,
         submit_intro: submitIntro,
         submit_title: submitTitle,
@@ -110,24 +110,26 @@ const Submit = () => {
         <ContentContainer>
           <InformationContainer>
             <GetInvolvedSection>
-              <PrismicRichText
-                field={getInvolved.richText}
-                components={{
-                  paragraph: ({ children }) => (
-                    <GetInvolvedText>{children}</GetInvolvedText>
-                  ),
-                }}
-              />
+              <GetInvolvedText>
+                <PrismicRichText
+                  field={getInvolved.richText}
+                  components={{
+                    paragraph: ({ children }) => <P>{children}</P>,
+                    heading3: ({ children }) => <H3>{children}</H3>,
+                  }}
+                />
+              </GetInvolvedText>
             </GetInvolvedSection>
             <QuestionsSection>
-              <PrismicRichText
-                field={questions.richText}
-                components={{
-                  paragraph: ({ children }) => (
-                    <QuestionsText>{children}</QuestionsText>
-                  ),
-                }}
-              />
+              <QuestionsText>
+                <PrismicRichText
+                  field={questions.richText}
+                  components={{
+                    paragraph: ({ children }) => <P>{children}</P>,
+                    heading3: ({ children }) => <H3>{children}</H3>,
+                  }}
+                />
+              </QuestionsText>
             </QuestionsSection>
           </InformationContainer>
           <FormContainer>
@@ -151,11 +153,11 @@ const Submit = () => {
                 <PaddedInput
                   placeholder={nameLabel.text}
                   name={nameLabel.text}
-                ></PaddedInput>
+                />
                 <PaddedInput
                   placeholder={emailLabel.text}
                   name={emailLabel.text}
-                ></PaddedInput>
+                />
               </FormRow>
               <Input
                 placeholder={projectTitleLabel.text}
@@ -176,7 +178,7 @@ const Submit = () => {
               <TextArea
                 placeholder={projectDescriptionLabel.text}
                 name={projectDescriptionLabel.text}
-              ></TextArea>
+              />
               <FormRow>
                 <UploadButton>
                   <HiddenInput type="file" />

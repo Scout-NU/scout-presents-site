@@ -103,18 +103,18 @@ export const QuestionsSection = styled.div`
     margin-left: 50%;
   }
   ${min.desktop} {
-    margin-left: 25%;
+    margin-left: 20%;
   }
 `;
 
-export const QuestionsText = styled(P)`
+export const QuestionsText = styled.div`
   transform: skew(-10deg);
   padding: 1rem 3rem 1rem 2rem;
 `;
 
-export const GetInvolvedText = styled(P)`
+export const GetInvolvedText = styled.div`
   transform: skew(5deg);
-  padding: 1rem 3rem 1rem 3rem;
+  padding: 1rem 3rem;
   ${min.tablet} {
     transform: skew(10deg);
   }
@@ -152,7 +152,7 @@ export const UploadButton = styled.label`
 `;
 
 export const UploadButtonText = styled(H3)`
-  margin: 0.3rem 0rem;
+  margin: 0.3rem 0;
   transform: skew(-15deg);
 `;
 
