@@ -115,7 +115,7 @@ const Submit = () => {
                   field={getInvolved.richText}
                   components={{
                     paragraph: ({ children }) => <P>{children}</P>,
-                    heading3: ({ children }) => <H3>{children}</H3>,
+                    heading3: ({ children }) => <H3 bold>{children}</H3>,
                   }}
                 />
               </GetInvolvedText>
@@ -126,7 +126,7 @@ const Submit = () => {
                   field={questions.richText}
                   components={{
                     paragraph: ({ children }) => <P>{children}</P>,
-                    heading3: ({ children }) => <H3>{children}</H3>,
+                    heading3: ({ children }) => <H3 bold>{children}</H3>,
                   }}
                 />
               </QuestionsText>
@@ -162,19 +162,16 @@ const Submit = () => {
               <Input
                 placeholder={projectTitleLabel.text}
                 name={projectTitleLabel.text}
-              ></Input>
+              />
               <Input
                 placeholder={projectMediumLabel.text}
                 name={projectMediumLabel.text}
-              ></Input>
-              <Input
-                placeholder={creditsLabel.text}
-                name={creditsLabel.text}
-              ></Input>
+              />
+              <Input placeholder={creditsLabel.text} name={creditsLabel.text} />
               <Input
                 placeholder={equipmentLabel.text}
                 name={equipmentLabel.text}
-              ></Input>
+              />
               <TextArea
                 placeholder={projectDescriptionLabel.text}
                 name={projectDescriptionLabel.text}

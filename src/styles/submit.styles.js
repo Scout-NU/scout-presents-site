@@ -38,6 +38,22 @@ export const FormContainer = styled.div`
 `;
 
 export const Input = styled.input`
+  background: ${BLACK};
+  border: solid ${CREAM} 1px;
+  border-radius: 2px;
+  color: ${CREAM};
+  padding: 4%;
+  font-family: ${fonts.IBMPlexMono};
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  margin-bottom: 1rem;
+  width: 92%;
+  &:focus-visible {
+    outline: 1px solid ${BLUE};
+  }
+`;
+
+export const TextArea = styled.textarea`
   type: text;
   background: ${BLACK};
   border: solid ${CREAM} 1px;
@@ -49,21 +65,9 @@ export const Input = styled.input`
   line-height: 1.375rem;
   margin-bottom: 1rem;
   width: 92%;
-  outline: ${BLUE} 1px;
-`;
-
-export const TextArea = styled.textarea`
-  type: text;
-  background: ${BLACK};
-  border: solid ${CREAM};
-  color: ${CREAM};
-  padding: 4%;
-  font-family: ${fonts.IBMPlexMono};
-  font-size: 1.125rem;
-  line-height: 1.375rem;
-  margin-bottom: 1rem;
-  width: 92%;
-  outline: none;
+  &:focus-visible {
+    outline: 1px solid ${BLUE};
+  }
   height: 8rem;
 `;
 
