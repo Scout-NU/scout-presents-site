@@ -139,7 +139,7 @@ export const UploadButton = styled.label`
   transform: skew(15deg);
   color: ${CREAM};
   background-color: transparent;
-  cursor: url(${Cursor}), pointer;
+  cursor: url(${Cursor}) 20 20, pointer;
   border-radius: 2px;
   border: 2px solid ${YELLOW};
   margin-left: 0.5rem;
