@@ -27,32 +27,32 @@ export const StyledP = styled(P)`
   margin-block: 0;
 `;
 
-export const responsive = {
+export const responsiveWatch = {
   desktop: {
-    breakpoint: { max: 3000, min: 1200 },
+    breakpoint: { max: 3000, min: 1280 },
     items: 3,
   },
   tablet: {
-    breakpoint: { max: 1200, min: 600 },
+    breakpoint: { max: 1297, min: 768 },
     items: 3,
   },
   mobile: {
-    breakpoint: { max: 600, min: 0 },
+    breakpoint: { max: 767, min: 0 },
     items: 2,
   },
 };
 
-export const responsiveArticle = {
+export const responsiveRead = {
   desktop: {
-    breakpoint: { max: 3000, min: 1200 },
+    breakpoint: { max: 3000, min: 1280 },
     items: 3,
   },
   tablet: {
-    breakpoint: { max: 1200, min: 600 },
+    breakpoint: { max: 1297, min: 768 },
     items: 2,
   },
   mobile: {
-    breakpoint: { max: 600, min: 0 },
+    breakpoint: { max: 767, min: 0 },
     items: 1,
   },
 };

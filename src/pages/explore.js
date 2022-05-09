@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby";
 import * as React from "react";
 import Layout from "../components/Layout";
-import ExploreRow from "../components/ExploreRow";
+import ExploreCarousel from "../components/ExploreCarousel";
 
 const Explore = () => {
   const exploreQuery = useStaticQuery(graphql`
@@ -83,7 +83,7 @@ const Explore = () => {
     <Layout>
       {sections.map((section) => {
         return (
-          <ExploreRow
+          <ExploreCarousel
             key={section.section.document.id}
             section={section.section.document}
           />
