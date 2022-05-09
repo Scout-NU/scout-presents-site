@@ -30,8 +30,8 @@ const Explore = () => {
                               thumbnail {
                                 url
                               }
-                              details {
-                                text
+                              preview_text {
+                                richText
                               }
                             }
                           }
@@ -43,6 +43,9 @@ const Explore = () => {
                               }
                               title {
                                 text
+                              }
+                              preview_text {
+                                richText
                               }
                             }
                           }

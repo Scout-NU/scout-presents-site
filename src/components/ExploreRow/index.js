@@ -3,19 +3,24 @@ import { H3, H2 } from "../../styles/styles";
 import {
   FlexContainer,
   responsive,
-  Content,
+  responsiveArticle,
+  FlexRow,
   Work,
   LeftIcon,
   RightIcon,
+  StyledP,
+  StyledImage,
+  StyledArticleImage,
+  ItemContainer,
 } from "./styled";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import Button from "../Button";
+import { PrismicRichText } from "@prismicio/react";
 
 const ExploreRow = ({ section }) => {
   const {
     data: { title, works },
-    uid,
+    uid: sectionuid,
   } = section;
 
   const CustomLeftArrow = ({ onClick }) => (
@@ -25,63 +30,126 @@ const ExploreRow = ({ section }) => {
     return <RightIcon onClick={() => onClick()} />;
   };
 
-  const CustomButtonGroup = ({ next, previous, goToSlide, carouselState }) => {
-    const { totalItems, currentSlide } = carouselState;
-    return (
-      <div className="custom-button-group">
-        <div>Current slide is {currentSlide}</div>
-        <button onClick={() => previous()}>Previous slide</button>
-        <button onClick={() => next()}>Next slide</button>
-        <button
-          onClick={() => goToSlide(Math.floor(Math.random() * totalItems + 1))}
-        >
-          Go to a random slide
-        </button>
-      </div>
-    );
-  };
-  const CustomButtonGroupAsArrows = ({ next, previous }) => {
-    return (
-      <div
-        style={{
-          textAlign: "center",
-        }}
-      >
-        <h4>These buttons can be positioned anywhere you want on the screen</h4>
-        <button onClick={previous}>Prev</button>
-        <button onClick={next}>Next</button>
-      </div>
-    );
-  };
+  const Watch = () => (
+    <Carousel
+      responsive={responsive}
+      customRightArrow={<CustomRightArrow />}
+      customLeftArrow={<CustomLeftArrow />}
+      infinite={true}
+    >
+      {works.map((work) => {
+        const {
+          work: {
+            document: {
+              uid,
+              data: { title, thumbnail, preview_text: previewText },
+            },
+          },
+        } = work;
+        return (
+          <ItemContainer>
+            <Work key={uid}>
+              <StyledImage alt={title.text} src={thumbnail.url} />
+              <H3>{title.text}</H3>
+              <PrismicRichText
+                field={previewText.richText}
+                components={{
+                  paragraph: ({ children }) => <StyledP>{children}</StyledP>,
+                }}
+              />
+            </Work>
+          </ItemContainer>
+        );
+      })}
+    </Carousel>
+  );
 
-  return (
-    <FlexContainer>
-      <H2 bold>{title.text}</H2>
-      <Carousel
-        responsive={responsive}
-        customRightArrow={<CustomRightArrow />}
-        customLeftArrow={<CustomLeftArrow />}
-        infinite={true}
-      >
-        {works.map((work) => {
+  const Read = () => (
+    <Carousel
+      responsive={responsiveArticle}
+      customRightArrow={<CustomRightArrow />}
+      customLeftArrow={<CustomLeftArrow />}
+      infinite={true}
+    >
+      {works.map((work, idx) => {
+        const {
+          work: {
+            document: {
+              uid,
+              data: { title, thumbnail, preview_text: previewText },
+            },
+          },
+        } = works[idx];
+
+        if (idx % 2 == 1) {
           const {
             work: {
               document: {
-                uid,
-                data: { title, thumbnail },
+                uid: uidTop,
+                data: {
+                  title: titleTop,
+                  thumbnail: thumbnailTop,
+                  preview_text: previewTextTop,
+                },
               },
             },
-          } = work;
+          } = works[idx - 1];
           return (
-            <Work key={uid}>
-              <img alt={title.text} src={thumbnail.url} height="300px" />
-              <H3>{title.text}</H3>
-            </Work>
+            <ItemContainer>
+              <Work key={uidTop}>
+                <FlexRow>
+                  <StyledArticleImage
+                    alt={titleTop.text}
+                    src={thumbnailTop.url}
+                  />
+                  <FlexContainer>
+                    <H3>{titleTop.text}</H3>
+                    <PrismicRichText
+                      field={previewTextTop.richText}
+                      components={{
+                        paragraph: ({ children }) => (
+                          <StyledP>{children}</StyledP>
+                        ),
+                      }}
+                    />
+                  </FlexContainer>
+                </FlexRow>
+              </Work>
+              <Work key={uid}>
+                <FlexRow>
+                  <StyledArticleImage alt={title.text} src={thumbnail.url} />
+                  <FlexContainer>
+                    <H3>{title.text}</H3>
+                    <PrismicRichText
+                      field={previewText.richText}
+                      components={{
+                        paragraph: ({ children }) => (
+                          <StyledP>{children}</StyledP>
+                        ),
+                      }}
+                    />
+                  </FlexContainer>
+                </FlexRow>
+              </Work>
+            </ItemContainer>
           );
-        })}
-      </Carousel>
+        }
+      })}
+    </Carousel>
+  );
+
+  return (
+    <FlexContainer>
+      {sectionuid === "read" || sectionuid === "watch" ? (
+        <div>
+          <H2 bold>{title.text}</H2>
+          {sectionuid === "read" ? <Read /> : <Watch />}
+        </div>
+      ) : null}
     </FlexContainer>
   );
 };
 
 export default ExploreRow;
+
+//TODO: refactor watch vs read, styling arrows and articles,

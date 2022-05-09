@@ -1,23 +1,48 @@
 import styled from "styled-components";
 import { min } from "../../styles/breakpoints";
-import { MarginContainer, YELLOW } from "../../styles/styles";
+import { MarginContainer, P, YELLOW } from "../../styles/styles";
 import { ArrowLeft, ArrowRight } from "react-feather";
+import Cursor from "../../images/cursor-pointer.svg";
 
 export const FlexContainer = styled(MarginContainer)`
   display: flex;
   flex-direction: column;
 `;
 
-export const Content = styled.div`
-  padding-bottom: 7rem;
+export const FlexRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  height: 200px;
+  padding-top: 1rem;
 `;
 
 export const Work = styled.div`
   padding-right: 1rem;
-  padding-bottom: 5rem;
+`;
+
+export const StyledP = styled(P)`
+  display: inline-block;
+  width: 100%;
+  margin-block: 0;
 `;
 
 export const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1200 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1200, min: 600 },
+    items: 3,
+  },
+  mobile: {
+    breakpoint: { max: 600, min: 0 },
+    items: 2,
+  },
+};
+
+export const responsiveArticle = {
   desktop: {
     breakpoint: { max: 3000, min: 1200 },
     items: 3,
@@ -28,7 +53,7 @@ export const responsive = {
   },
   mobile: {
     breakpoint: { max: 600, min: 0 },
-    items: 2,
+    items: 1,
   },
 };
 
@@ -37,7 +62,14 @@ export const LeftIcon = styled(ArrowLeft)`
   position: absolute;
   width: 45px;
   height: 45px;
-  margin-top: 22rem;
+  margin-top: 25rem;
+  cursor: url(${Cursor}) 20 20, pointer;
+  ${min.tablet} {
+    margin-top: 30rem;
+  }
+  ${min.desktop} {
+    margin-left: 90%;
+  }
 `;
 
 export const RightIcon = styled(ArrowRight)`
@@ -46,5 +78,27 @@ export const RightIcon = styled(ArrowRight)`
   margin-left: 90%;
   width: 45px;
   height: 45px;
-  margin-top: 22rem;
+  margin-top: 25rem;
+  cursor: url(${Cursor}) 20 20, pointer;
+  ${min.tablet} {
+    margin-top: 30rem;
+  }
+  ${min.desktop} {
+    margin-left: 95%;
+  }
+`;
+
+export const StyledImage = styled.img`
+  width: 100%;
+`;
+
+export const StyledArticleImage = styled.img`
+  width: 100%;
+  margin-top: 1rem;
+  margin-right: 0px;
+`;
+
+export const ItemContainer = styled.div`
+  padding-bottom: 8rem;
+  height: 90%;
 `;
