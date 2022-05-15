@@ -1,9 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 import Layout from '../components/Layout';
+import { MarginContainer } from '../styles/styles';
+import FeaturedContent from '../components/FeaturedContent';
 
 const Explore = () => (
   <Layout>
-    <h1>This is the explore page!</h1>
+    <MarginContainer>
+      <FeaturedContent />
+    </MarginContainer>
   </Layout>
 );
 
