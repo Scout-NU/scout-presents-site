@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container, FlexContainer, Overview, Content } from './styled';
-import { H1, H2, P, YELLOW } from '../../styles/styles';
+import { H1, P, YELLOW } from '../../styles/styles';
 import Button from '../Button';
+import ProjectCarousel from '../ProjectCarousel';
 
 const ProjectPreview = ({ project }) => {
   const {
@@ -16,32 +17,11 @@ const ProjectPreview = ({ project }) => {
           <H1>{name.text}</H1>
           <P>{description.text}</P>
           <Button to={`/projects/${uid}`} color={YELLOW}>
-            Watch
+            View
           </Button>
         </Overview>
         <Content>
-          {works.map((work) => {
-            const {
-              content: {
-                document: {
-                  uid,
-                  data: {
-                    title,
-                    embed: { thumbnail_url },
-                  },
-                },
-              },
-            } = work;
-            return (
-              <div key={uid}>
-                <img alt={title.text} src={thumbnail_url} />
-                <H2>{title.text}</H2>
-                <Button to={`/works/${uid}`} secondary>
-                  Watch
-                </Button>
-              </div>
-            );
-          })}
+          <ProjectCarousel works={works} />
         </Content>
       </FlexContainer>
     </Container>

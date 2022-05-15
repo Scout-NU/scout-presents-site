@@ -17,16 +17,19 @@ export const FlexContainer = styled(MarginContainer)`
 
 export const Overview = styled.div`
   flex: 50%;
+  padding-bottom: 1rem;
   ${min.desktop} {
-    border-right: 0.5px solid ${CREAM};
+    border-right: 0.25px solid ${CREAM};
+    padding: 1rem;
+    padding-left: 0;
   }
 `;
 
 export const Content = styled.div`
   flex: 50%;
-  display: flex;
-  overflow-x: scroll;
   ${min.desktop} {
-    border-left: 0.5px solid ${CREAM};
+    border-left: 0.25px solid ${CREAM};
+    padding: 1rem;
+    padding-right: 0;
   }
 `;
