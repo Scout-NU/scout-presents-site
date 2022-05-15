@@ -15,9 +15,9 @@ export const Thumbnail = styled.img`
   aspect-ratio: 1;
   object-fit: contain;
   width: 100%;
-  margin-right: 1rem;
   ${min.desktop} {
     width: 58%;
+    margin-right: 1rem;
   }
 `;
 
