@@ -1,6 +1,12 @@
 import styled, { css } from 'styled-components';
-import { H1, H3, YELLOW, BLACK, CREAM } from '../../styles/styles';
-import Cursor from '../../images/cursor-pointer.svg';
+import {
+  H1,
+  H3,
+  YELLOW,
+  BLACK,
+  CREAM,
+  PointerStyles,
+} from '../../styles/styles';
 
 const primaryStyles = css`
   padding: 0.5rem 1.5rem;
@@ -29,7 +35,7 @@ const secondaryStyles = css`
 
 export const StyledButton = styled.button`
   ${(props) => (props.secondary ? secondaryStyles : primaryStyles)}
-  cursor: url(${Cursor}) 20 20, pointer;
+  ${PointerStyles}
 `;
 
 // offsets the skew from transforming the button
@@ -37,7 +43,7 @@ const textStyles = css`
   ${(props) => !props.secondary && 'transform: skew(-15deg);'}
   margin-block-start: 0;
   margin-block-end: 0;
-  cursor: url(${Cursor}) 20 20, pointer;
+  ${PointerStyles}
 `;
 
 export const ButtonText = styled(H3)`

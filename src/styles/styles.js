@@ -1,7 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import './styles.css';
 import { min } from './breakpoints';
 import { Link } from 'gatsby';
+import Cursor from '../images/cursor.svg';
+import CursorPointer from '../images/cursor-pointer.svg';
 
 // Colors
 export const YELLOW = '#ECF955';
@@ -76,4 +78,12 @@ export const A = styled.a`
 
 export const StyledLink = styled(Link)`
   ${linkStyles}
+`;
+
+export const CursorStyles = css`
+  cursor: url(${Cursor}) 20 20, auto;
+`;
+
+export const PointerStyles = css`
+  cursor: url(${CursorPointer}) 20 20, pointer;
 `;
