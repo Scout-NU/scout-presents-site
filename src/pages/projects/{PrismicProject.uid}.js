@@ -20,14 +20,14 @@ const ProjectPage = ({ data }) => {
             document: {
               uid,
               data: {
-                embed: { thumbnail_url: thumbnail },
+                thumbnail: { url: thumbnailUrl, alt },
               },
             },
           },
         } = work;
         return (
-          <Link to={`/works/${uid}`}>
-            <img src={thumbnail} />
+          <Link to={`/works/${uid}`} key={uid}>
+            <img src={thumbnailUrl} alt={alt} />
           </Link>
         );
       })}
@@ -51,8 +51,27 @@ export const query = graphql`
               ... on PrismicVideo {
                 uid
                 data {
-                  embed {
-                    thumbnail_url
+                  thumbnail {
+                    url
+                    alt
+                  }
+                }
+              }
+              ... on PrismicArticle {
+                uid
+                data {
+                  thumbnail {
+                    url
+                    alt
+                  }
+                }
+              }
+              ... on PrismicGallery {
+                uid
+                data {
+                  thumbnail {
+                    url
+                    alt
                   }
                 }
               }

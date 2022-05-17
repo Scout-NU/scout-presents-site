@@ -1,11 +1,12 @@
 import styled, { css } from 'styled-components';
-import { Link } from 'gatsby';
-import { H1, H3, YELLOW, BLACK, CREAM } from '../../styles/styles';
-import Cursor from '../../images/cursor-pointer.svg';
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
-`;
+import {
+  H1,
+  H3,
+  YELLOW,
+  BLACK,
+  CREAM,
+  PointerStyles,
+} from '../../styles/styles';
 
 const primaryStyles = css`
   padding: 0.5rem 1.5rem;
@@ -14,6 +15,7 @@ const primaryStyles = css`
   border-radius: 2px;
   border: 2px solid ${(props) => props.color};
   background-color: ${(props) => props.color};
+  text-transform: lowercase;
   &:hover {
     background-color: transparent;
     color: ${(props) => props.color};
@@ -22,7 +24,7 @@ const primaryStyles = css`
 
 const secondaryStyles = css`
   padding: 0.5rem 0;
-  color: ${CREAM};
+  color: inherit;
   background-color: transparent;
   border: 0px;
   border-bottom: 2px solid transparent;
@@ -33,16 +35,15 @@ const secondaryStyles = css`
 
 export const StyledButton = styled.button`
   ${(props) => (props.secondary ? secondaryStyles : primaryStyles)}
-  cursor: url(${Cursor}), pointer;
+  ${PointerStyles}
 `;
 
 // offsets the skew from transforming the button
 const textStyles = css`
   ${(props) => !props.secondary && 'transform: skew(-15deg);'}
-  text-transform: lowercase;
   margin-block-start: 0;
   margin-block-end: 0;
-  cursor: url(${Cursor}), pointer;
+  ${PointerStyles}
 `;
 
 export const ButtonText = styled(H3)`

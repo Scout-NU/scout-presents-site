@@ -1,47 +1,57 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../../components/Layout';
-import Video from '../../components/Video';
+import Gallery from '../../components/Gallery';
 
-const VideoPage = ({ data }) => {
+const GalleryPage = ({ data }) => {
   if (!data) return null;
   const {
-    prismicVideo: {
+    prismicGallery: {
       data: {
         title: { text: title },
-        embed,
         project: { document: project },
-        details: { richText: details },
+        artist_name: { text: artistName },
         date_published: datePublished,
+        description: { text: description },
+        images,
       },
     },
   } = data;
 
   return (
     <Layout>
-      <Video
+      <Gallery
         title={title}
-        embed={embed}
-        details={details}
         project={project}
+        artistName={artistName}
         datePublished={datePublished}
+        description={description}
+        images={images}
       />
     </Layout>
   );
 };
 
 export const query = graphql`
-  query VideoPageQuery($uid: String) {
-    prismicVideo(uid: { eq: $uid }) {
+  query GalleryPageQuery($uid: String) {
+    prismicGallery(uid: { eq: $uid }) {
       data {
         title {
           text
         }
-        embed {
-          html
-          upload_date(formatString: "MMMM DD, YYYY")
+        artist_name {
+          text
         }
         date_published(formatString: "MMMM DD, YYYY")
+        description {
+          text
+        }
+        images {
+          image {
+            url
+            alt
+          }
+        }
         project {
           document {
             ... on PrismicProject {
@@ -54,12 +64,9 @@ export const query = graphql`
             }
           }
         }
-        details {
-          richText
-        }
       }
     }
   }
 `;
 
-export default VideoPage;
+export default GalleryPage;
