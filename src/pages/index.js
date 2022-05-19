@@ -3,9 +3,17 @@ import * as React from 'react';
 import Layout from '../components/Layout';
 import Hero from '../components/Hero';
 import ProjectPreview from '../components/ProjectPreview';
-import { MarginContainer, H1, H2, YELLOW } from '../styles/styles';
-import { SingleWorksDescription } from '../styles/index.styles';
+import { MarginContainer, H1, YELLOW } from '../styles/styles';
+import {
+  BlurbContainer,
+  Blurb,
+  SingleWorksDescription,
+  SprinkleTriangle,
+  SprinkleSquiggle,
+} from '../styles/index.styles';
 import Button from '../components/Button';
+import Triangle from '../images/sprinkles/Triangle.svg';
+import Squiggle from '../images/sprinkles/Squiggle.svg';
 
 const IndexPage = () => {
   const pageQuery = useStaticQuery(graphql`
@@ -105,9 +113,11 @@ const IndexPage = () => {
   return (
     <Layout>
       <Hero heading={mainHeading.text} blurb={blurb.text} />
-      <MarginContainer>
-        <H2>{blurb.text}</H2>
-      </MarginContainer>
+      <BlurbContainer>
+        <Blurb>{blurb.text}</Blurb>
+        <SprinkleTriangle src={Triangle} alt="" />
+        <SprinkleSquiggle src={Squiggle} alt="" />
+      </BlurbContainer>
       {projects.map((project) => {
         return (
           <ProjectPreview

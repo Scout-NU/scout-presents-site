@@ -1,6 +1,6 @@
 import styled, { keyframes, css } from 'styled-components';
 import { min } from '../../styles/breakpoints';
-import { BLUE } from '../../styles/styles';
+import { BLUE, CREAM } from '../../styles/styles';
 
 /**
  * the height of the invisible frame controlling the falling elements
@@ -109,6 +109,7 @@ export const Container = styled.div`
   overflow-x: hidden;
   display: flex;
   justify-content: center;
+  border-bottom: 0.5px solid ${CREAM};
 `;
 
 const frameStyles = css`
