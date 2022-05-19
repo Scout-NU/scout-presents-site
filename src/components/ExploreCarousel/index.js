@@ -15,7 +15,6 @@ import {
 } from "./styled";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { PrismicRichText } from "@prismicio/react";
 
 const ExploreCarousel = ({ section }) => {
   const {
@@ -23,19 +22,13 @@ const ExploreCarousel = ({ section }) => {
     uid: sectionuid,
   } = section;
 
-  const CustomLeftArrow = ({ onClick }) => (
-    <LeftIcon onClick={() => onClick()} />
-  );
-  const CustomRightArrow = ({ onClick }) => {
-    return <RightIcon onClick={() => onClick()} />;
-  };
-
   const SingleCarousel = () => (
     <Carousel
       responsive={responsiveWatch}
-      customRightArrow={<CustomRightArrow />}
-      customLeftArrow={<CustomLeftArrow />}
+      customRightArrow={<RightIcon />}
+      customLeftArrow={<LeftIcon />}
       infinite={true}
+      autoPlay={false}
     >
       {works.map((work) => {
         const {
@@ -52,12 +45,7 @@ const ExploreCarousel = ({ section }) => {
               <Work key={uid}>
                 <StyledImage alt={title.text} src={thumbnail.url} />
                 <H3>{title.text}</H3>
-                <PrismicRichText
-                  field={previewText.richText}
-                  components={{
-                    paragraph: ({ children }) => <StyledP>{children}</StyledP>,
-                  }}
-                />
+                <StyledP>{previewText.text}</StyledP>
               </Work>
             </StyledLink>
           </ItemContainer>
@@ -69,9 +57,10 @@ const ExploreCarousel = ({ section }) => {
   const StackedCarousel = () => (
     <Carousel
       responsive={responsiveRead}
-      customRightArrow={<CustomRightArrow />}
-      customLeftArrow={<CustomLeftArrow />}
+      customRightArrow={<RightIcon />}
+      customLeftArrow={<LeftIcon />}
       infinite={true}
+      autoPlay={false}
     >
       {works.map((work, idx) => {
         const {
@@ -107,14 +96,7 @@ const ExploreCarousel = ({ section }) => {
                     />
                     <FlexContainer>
                       <H3>{titleTop.text}</H3>
-                      <PrismicRichText
-                        field={previewTextTop.richText}
-                        components={{
-                          paragraph: ({ children }) => (
-                            <StyledP>{children}</StyledP>
-                          ),
-                        }}
-                      />
+                      <StyledP>{previewText.text}</StyledP>
                     </FlexContainer>
                   </FlexRow>
                 </Work>
@@ -125,20 +107,15 @@ const ExploreCarousel = ({ section }) => {
                     <StyledArticleImage alt={title.text} src={thumbnail.url} />
                     <FlexContainer>
                       <H3>{title.text}</H3>
-                      <PrismicRichText
-                        field={previewText.richText}
-                        components={{
-                          paragraph: ({ children }) => (
-                            <StyledP>{children}</StyledP>
-                          ),
-                        }}
-                      />
+                      <StyledP>{previewTextTop.text}</StyledP>
                     </FlexContainer>
                   </FlexRow>
                 </Work>
               </StyledLink>
             </ItemContainer>
           );
+        } else {
+          return null;
         }
       })}
     </Carousel>

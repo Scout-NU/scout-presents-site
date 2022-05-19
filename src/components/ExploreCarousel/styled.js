@@ -60,8 +60,6 @@ export const responsiveRead = {
 export const LeftIcon = styled(ArrowLeft)`
   color: ${YELLOW};
   position: absolute;
-  width: 45px;
-  height: 45px;
   margin-top: 25rem;
   cursor: url(${Cursor}) 20 20, pointer;
   ${min.tablet} {
@@ -75,9 +73,7 @@ export const LeftIcon = styled(ArrowLeft)`
 export const RightIcon = styled(ArrowRight)`
   color: ${YELLOW};
   position: absolute;
-  margin-left: 90%;
-  width: 45px;
-  height: 45px;
+  margin-left: 95%;
   margin-top: 25rem;
   cursor: url(${Cursor}) 20 20, pointer;
   ${min.tablet} {

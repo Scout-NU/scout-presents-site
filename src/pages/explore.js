@@ -31,7 +31,7 @@ const Explore = () => {
                                 url
                               }
                               preview_text {
-                                richText
+                                text
                               }
                             }
                           }
@@ -45,7 +45,7 @@ const Explore = () => {
                                 text
                               }
                               preview_text {
-                                richText
+                                text
                               }
                             }
                           }
