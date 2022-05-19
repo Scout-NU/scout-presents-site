@@ -33,16 +33,41 @@ const IndexPage = () => {
                     }
                     works {
                       content {
+                        type
                         document {
                           ... on PrismicVideo {
                             uid
-                            id
                             data {
                               title {
                                 text
                               }
-                              embed {
-                                thumbnail_url
+                              thumbnail {
+                                alt
+                                url
+                              }
+                            }
+                          }
+                          ... on PrismicArticle {
+                            uid
+                            data {
+                              title {
+                                text
+                              }
+                              thumbnail {
+                                alt
+                                url
+                              }
+                            }
+                          }
+                          ... on PrismicGallery {
+                            uid
+                            data {
+                              title {
+                                text
+                              }
+                              thumbnail {
+                                alt
+                                url
                               }
                             }
                           }
