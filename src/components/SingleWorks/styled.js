@@ -3,7 +3,12 @@ import { P, PointerStyles, YELLOW, MarginContainer } from '../../styles/styles';
 import { min } from '../../styles/breakpoints';
 import { ArrowLeft, ArrowRight } from 'react-feather';
 
+export const OverflowContainer = styled.div`
+  overflow-x: clip;
+`;
+
 export const Container = styled(MarginContainer)`
+  position: relative;
   padding: 5rem 0 10rem 0;
   ${min.tablet} {
     padding: 6rem 0 11rem 0;
@@ -64,4 +69,36 @@ export const LeftIcon = styled(ArrowLeft)`
 export const RightIcon = styled(ArrowRight)`
   ${arrowStyles}
   right: 1rem;
+`;
+
+export const TopCollage = styled.img`
+  position: absolute;
+  width: 269px;
+  right: -5.5rem;
+  top: -4rem;
+  ${min.tablet} {
+    width: 420px;
+    right: -5rem;
+    top: -7rem;
+  }
+  ${min.desktop} {
+    width: 482px;
+    right: -3rem;
+    top: -1.5rem;
+  }
+`;
+
+export const BottomCollage = styled.img`
+  position: absolute;
+  left: 0;
+  bottom: -3rem;
+  width: 185px;
+  ${min.tablet} {
+    width: 314px;
+    bottom: -6.75rem;
+  }
+  ${min.desktop} {
+    left: -3rem;
+    bottom: -3rem;
+  }
 `;

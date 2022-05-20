@@ -11,8 +11,13 @@ import {
   Slide,
   LeftIcon,
   RightIcon,
+  TopCollage,
+  BottomCollage,
+  OverflowContainer,
 } from './styled';
 import Button from '../Button';
+import SingleWorksTopCollage from '../../images/single-works-collage.png';
+import SingleWorksBottomCollage from '../../images/single-works-bottom-collage.png';
 
 const SingleWorks = () => {
   const query = useStaticQuery(graphql`
@@ -81,40 +86,44 @@ const SingleWorks = () => {
   } = query;
 
   return (
-    <Container>
-      <H1>{singleWorksHeading.text}</H1>
-      <SingleWorksDescription>
-        {singleWorksDescription.text}
-      </SingleWorksDescription>
-      <Carousel
-        responsive={responsive}
-        infinite
-        shouldResetAutoplay={false}
-        customLeftArrow={<LeftIcon />}
-        customRightArrow={<RightIcon />}>
-        {works.map((work) => {
-          const {
-            uid,
-            document: {
-              data: {
-                thumbnail: { url, alt },
-                title: { text: title },
+    <OverflowContainer>
+      <Container>
+        <H1>{singleWorksHeading.text}</H1>
+        <SingleWorksDescription>
+          {singleWorksDescription.text}
+        </SingleWorksDescription>
+        <Carousel
+          responsive={responsive}
+          infinite
+          shouldResetAutoplay={false}
+          customLeftArrow={<LeftIcon />}
+          customRightArrow={<RightIcon />}>
+          {works.map((work) => {
+            const {
+              uid,
+              document: {
+                data: {
+                  thumbnail: { url, alt },
+                  title: { text: title },
+                },
               },
-            },
-          } = work.work;
-          return (
-            <Slide>
-              <Link to={`/works/${uid}`}>
-                <Thumbnail src={url} alt={alt} />
-              </Link>
-              <Button secondary to={`/works/${uid}`}>
-                {title}
-              </Button>
-            </Slide>
-          );
-        })}
-      </Carousel>
-    </Container>
+            } = work.work;
+            return (
+              <Slide>
+                <Link to={`/works/${uid}`}>
+                  <Thumbnail src={url} alt={alt} />
+                </Link>
+                <Button secondary to={`/works/${uid}`}>
+                  {title}
+                </Button>
+              </Slide>
+            );
+          })}
+        </Carousel>
+        <TopCollage src={SingleWorksTopCollage} alt="" />
+        <BottomCollage src={SingleWorksBottomCollage} alt="" />
+      </Container>
+    </OverflowContainer>
   );
 };
 
