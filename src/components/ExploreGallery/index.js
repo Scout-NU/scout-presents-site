@@ -32,7 +32,7 @@ const ExploreGallery = ({ works }) => {
       });
       return null;
     });
-    const shuffledImages = galleryImages.sort((a, b) => 0.5 - Math.random());
+    const shuffledImages = galleryImages.sort((a, b) => 0.5 - Math.random()); //shuffle images
     setImageList(shuffledImages);
   }, []);
 
