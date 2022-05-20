@@ -36,6 +36,7 @@ const secondaryStyles = css`
 export const StyledButton = styled.button`
   ${(props) => (props.secondary ? secondaryStyles : primaryStyles)}
   ${PointerStyles}
+  text-align: start;
 `;
 
 // offsets the skew from transforming the button

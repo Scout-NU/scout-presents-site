@@ -5,7 +5,7 @@ import { Controls, Arrow } from './styled';
 /**
  * modulo function that works with negative divisors
  */
-const mod = (a, b) => ((a % b) + b) % b;
+export const mod = (a, b) => ((a % b) + b) % b;
 
 const ArrowControls = ({ setIndex, items }) => {
   const tabNext = () => {
