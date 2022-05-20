@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Gallery from "react-grid-gallery";
-import { ViewContainer } from "./styled";
+import { ViewContainer, StyledH3 } from "./styled";
 import { navigate } from "gatsby";
 
 const ExploreGallery = ({ works }) => {
@@ -8,30 +8,30 @@ const ExploreGallery = ({ works }) => {
 
   useEffect(() => {
     const galleryImages = [];
-    works.map((work) => {
+    works.forEach((work) => {
       const {
         work: {
           document: {
             uid,
-            data: { images },
+            data: { images, title },
           },
         },
       } = work;
-      images.map((image, i) => {
-        if (i < 5) {
-          let img = {
-            src: image.image.url,
-            thumbnail: image.image.url,
-            thumbnailHeight: image.image.dimensions.height,
-            thumbnailWidth: image.image.dimensions.width,
-            uid: work.work.document.uid,
-          };
-          galleryImages.push(img);
-        }
-        return null;
+      images.forEach((image) => {
+        let img = {
+          src: image.image.url,
+          thumbnail: image.image.url,
+          thumbnailHeight: image.image.dimensions.height,
+          thumbnailWidth: image.image.dimensions.width,
+          uid: work.work.document.uid,
+          customOverlay: (
+            <StyledH3>{work.work.document.data.title.text}</StyledH3>
+          ),
+        };
+        galleryImages.push(img);
       });
-      return null;
     });
+
     const shuffledImages = galleryImages.sort((a, b) => 0.5 - Math.random()); //shuffle images
     setImageList(shuffledImages);
   }, []);
@@ -52,7 +52,7 @@ const ExploreGallery = ({ works }) => {
         images={imageList}
         enableImageSelection={false}
         enableLightbox={false}
-        rowHeight={350}
+        rowHeight={300}
         margin={5}
         maxRows={3}
         thumbnailStyle={imageStyle}
