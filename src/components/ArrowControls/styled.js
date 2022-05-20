@@ -12,4 +12,5 @@ export const Arrow = styled.button`
   background-color: transparent;
   color: ${YELLOW};
   padding: 0;
+  z-index: 2;
 `;

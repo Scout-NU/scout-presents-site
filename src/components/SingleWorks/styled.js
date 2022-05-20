@@ -59,6 +59,7 @@ const arrowStyles = css`
   position: absolute;
   padding-top: 2rem;
   bottom: 0;
+  z-index: 2;
 `;
 
 export const LeftIcon = styled(ArrowLeft)`
@@ -76,6 +77,7 @@ export const TopCollage = styled.img`
   width: 269px;
   right: -5.5rem;
   top: -4rem;
+  z-index: 1;
   ${min.tablet} {
     width: 420px;
     right: -5rem;
@@ -93,6 +95,7 @@ export const BottomCollage = styled.img`
   left: 0;
   bottom: -3rem;
   width: 185px;
+  z-index: 1;
   ${min.tablet} {
     width: 314px;
     bottom: -6.75rem;
