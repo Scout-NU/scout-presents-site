@@ -3,15 +3,13 @@ import * as React from 'react';
 import Layout from '../components/Layout';
 import Hero from '../components/Hero';
 import ProjectPreview from '../components/ProjectPreview';
-import { MarginContainer, H1, YELLOW } from '../styles/styles';
+import SingleWorks from '../components/SingleWorks';
 import {
   BlurbContainer,
   Blurb,
-  SingleWorksDescription,
   SprinkleTriangle,
   SprinkleSquiggle,
 } from '../styles/index.styles';
-import Button from '../components/Button';
 import Triangle from '../images/sprinkles/Triangle.svg';
 import Squiggle from '../images/sprinkles/Squiggle.svg';
 
@@ -87,12 +85,6 @@ const IndexPage = () => {
               }
             }
           }
-          single_works_heading {
-            text
-          }
-          single_works_description {
-            text
-          }
         }
       }
     }
@@ -100,13 +92,7 @@ const IndexPage = () => {
 
   const {
     prismicHomepage: {
-      data: {
-        main_heading: mainHeading,
-        blurb,
-        projects,
-        single_works_heading: singleWorksHeading,
-        single_works_description: singleWorksDescription,
-      },
+      data: { main_heading: mainHeading, blurb, projects },
     },
   } = pageQuery;
 
@@ -126,13 +112,7 @@ const IndexPage = () => {
           />
         );
       })}
-      <MarginContainer>
-        <H1>{singleWorksHeading.text}</H1>
-        <SingleWorksDescription>
-          {singleWorksDescription.text}
-        </SingleWorksDescription>
-        <Button color={YELLOW}>Watch</Button>
-      </MarginContainer>
+      <SingleWorks />
     </Layout>
   );
 };
