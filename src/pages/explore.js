@@ -58,6 +58,16 @@ const Explore = () => {
                               title {
                                 text
                               }
+                              images {
+                                image {
+                                  url
+                                  alt
+                                  dimensions {
+                                    height
+                                    width
+                                  }
+                                }
+                              }
                             }
                           }
                         }
