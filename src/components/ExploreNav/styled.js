@@ -15,7 +15,6 @@ export const StyledLink = styled.div`
   text-align: center;
   &:hover {
     background-color: ${PINK};
-    color: ${BLACK};
   }
 `;
 
@@ -51,7 +50,9 @@ export const LinkText = styled(H3)`
   margin: 0.6rem 0;
   transform: skew(-15deg);
   color: ${CREAM};
-  text-decoration: none;
+  &:hover {
+    color: ${BLACK};
+  }
 `;
 
 export const StyledAnchorLink = styled(AnchorLink)`
