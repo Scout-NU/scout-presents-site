@@ -81,7 +81,6 @@ const Explore = () => {
       data: { sections },
     },
   } = exploreQuery;
-
   return (
     <Layout>
       <ExploreNav />
@@ -91,6 +90,7 @@ const Explore = () => {
       {sections.map((section) => {
         return (
           <ExploreCarousel
+            id={section.section.document.uid}
             key={section.section.document.id}
             section={section.section.document}
           />

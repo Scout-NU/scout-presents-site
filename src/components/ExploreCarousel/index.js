@@ -16,7 +16,7 @@ import {
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-const ExploreCarousel = ({ section }) => {
+const ExploreCarousel = ({ section, id, key }) => {
   const {
     data: { title, works },
     uid: sectionuid,
@@ -40,7 +40,7 @@ const ExploreCarousel = ({ section }) => {
           },
         } = work;
         return (
-          <ItemContainer>
+          <ItemContainer id={id}>
             <StyledLink to={`../works/${uid}`}>
               <Work key={uid}>
                 <StyledImage alt={title.text} src={thumbnail.url} />
@@ -122,7 +122,7 @@ const ExploreCarousel = ({ section }) => {
   );
 
   return (
-    <FlexContainer>
+    <FlexContainer id={id}>
       {sectionuid === "read" || sectionuid === "watch" ? (
         <div>
           <H2 bold>{title.text}</H2>
