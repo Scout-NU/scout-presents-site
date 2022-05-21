@@ -23,6 +23,7 @@ export const SprinkleTriangle = styled.img`
   width: 20px;
   left: -3%;
   top: 10%;
+  z-index: 1;
   ${min.tablet} {
     width: 31px;
     left: 4.2%;
@@ -39,6 +40,7 @@ export const SprinkleSquiggle = styled.img`
   right: 0;
   bottom: -3%;
   width: 39px;
+  z-index: 1;
   ${min.tablet} {
     width: 67px;
   }
