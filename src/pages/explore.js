@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { MarginContainer } from '../styles/styles';
 import Layout from '../components/Layout';
 import FeaturedContent from '../components/FeaturedContent';
 import ExploreCarousel from '../components/ExploreCarousel';
@@ -93,9 +92,7 @@ const Explore = () => {
 
   return (
     <Layout>
-      <MarginContainer>
-        <FeaturedContent />
-      </MarginContainer>
+      <FeaturedContent />
       {sections.map((section) => {
         return (
           <ExploreCarousel

@@ -1,8 +1,18 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { H1, P, YELLOW } from '../../styles/styles';
-import { Description, Details, FlexContainer, Thumbnail } from './styled';
+import { H1, YELLOW } from '../../styles/styles';
+import {
+  BottomRightCollage,
+  Description,
+  Details,
+  FlexContainer,
+  OverflowContainer,
+  Thumbnail,
+  TopLeftCollage,
+} from './styled';
 import Button from '../Button';
+import Collage1 from '../../images/explore-collage-1.png';
+import Collage2 from '../../images/explore-collage-2.png';
 
 const FeaturedContent = () => {
   const query = useStaticQuery(graphql`
@@ -40,18 +50,22 @@ const FeaturedContent = () => {
   } = query;
 
   return (
-    <FlexContainer>
-      <Thumbnail src={thumbnail} alt={alt} />
-      <Details>
-        <H1>{title}</H1>
-        <Description>{description}</Description>
-        <Button
-          to={`/${type === 'project' ? 'projects' : 'works'}/${uid}`}
-          color={YELLOW}>
-          {type === 'video' ? 'watch' : type === 'article' ? 'read' : 'view'}
-        </Button>
-      </Details>
-    </FlexContainer>
+    <OverflowContainer>
+      <FlexContainer>
+        <Thumbnail src={thumbnail} alt={alt} />
+        <Details>
+          <H1>{title}</H1>
+          <Description>{description}</Description>
+          <Button
+            to={`/${type === 'project' ? 'projects' : 'works'}/${uid}`}
+            color={YELLOW}>
+            {type === 'video' ? 'watch' : type === 'article' ? 'read' : 'view'}
+          </Button>
+        </Details>
+        <TopLeftCollage src={Collage1} alt="" />
+        <BottomRightCollage src={Collage2} alt="" />
+      </FlexContainer>
+    </OverflowContainer>
   );
 };
 
