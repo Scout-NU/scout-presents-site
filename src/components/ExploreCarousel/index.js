@@ -16,7 +16,7 @@ import {
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-const ExploreCarousel = ({ section, id, key }) => {
+const ExploreCarousel = ({ section, id }) => {
   const {
     data: { title, works },
     uid: sectionuid,

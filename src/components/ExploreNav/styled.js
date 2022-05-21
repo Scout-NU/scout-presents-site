@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { BLACK, H3, CREAM, PINK } from "../../styles/styles";
+import { BLACK, H3, CREAM, PINK, PointerStyles } from "../../styles/styles";
 import { min } from "../../styles/breakpoints";
-import Cursor from "../../images/cursor-pointer.svg";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 export const StyledLink = styled.div`
@@ -10,7 +9,7 @@ export const StyledLink = styled.div`
   width: 100%;
   transform: skew(15deg);
   background-color: transparent;
-  cursor: url(${Cursor}) 20 20, pointer;
+  ${PointerStyles}
   border: 2px solid ${CREAM};
   text-align: center;
   &:hover {
@@ -34,6 +33,9 @@ export const RightLink = styled(StyledLink)`
 export const LinkContainer = styled.div`
   display: flex;
   flex-direction: row;
+  position: sticky;
+  top: 0;
+  z-index: 1;
   margin-left: 5%;
   width: 90%;
   ${min.tablet} {
@@ -49,6 +51,8 @@ export const LinkContainer = styled.div`
 export const LinkText = styled(H3)`
   margin: 0.6rem 0;
   transform: skew(-15deg);
+  height: 100%;
+  width: 100%;
   color: ${CREAM};
   &:hover {
     color: ${BLACK};
@@ -57,4 +61,6 @@ export const LinkText = styled(H3)`
 
 export const StyledAnchorLink = styled(AnchorLink)`
   text-decoration: none;
+  height: 100%;
+  width: 100%;
 `;
