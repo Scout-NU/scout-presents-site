@@ -5,7 +5,6 @@ import { css } from 'styled-components';
 
 export const OverflowContainer = styled.div`
   overflow-x: clip;
-  position: relative;
 `;
 
 export const FlexContainer = styled(MarginContainer)`
