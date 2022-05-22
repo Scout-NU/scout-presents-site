@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import Gallery from "react-grid-gallery";
-import { ViewContainer, StyledH3 } from "./styled";
-import { navigate } from "gatsby";
+import React, { useState, useEffect } from 'react';
+import Gallery from 'react-grid-gallery';
+import { ViewContainer, StyledH3 } from './styled';
+import { navigate } from 'gatsby';
 
 const ExploreGallery = ({ works }) => {
   const [imageList, setImageList] = useState([]);
@@ -12,8 +12,7 @@ const ExploreGallery = ({ works }) => {
       const {
         work: {
           document: {
-            uid,
-            data: { images, title },
+            data: { images },
           },
         },
       } = work;
@@ -34,16 +33,16 @@ const ExploreGallery = ({ works }) => {
 
     const shuffledImages = galleryImages.sort((a, b) => 0.5 - Math.random()); //shuffle images
     setImageList(shuffledImages);
-  }, []);
+  }, [works]);
 
   function imageStyle() {
     return {
-      height: "100%",
+      height: '100%',
     };
   }
 
   function redirectGallery(index) {
-    return navigate("/works/" + imageList[index].uid);
+    return navigate('/works/' + imageList[index].uid);
   }
 
   return (
