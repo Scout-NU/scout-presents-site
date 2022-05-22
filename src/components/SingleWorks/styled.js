@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from 'react-feather';
 
 export const OverflowContainer = styled.div`
   overflow-x: clip;
+  width: 100%;
 `;
 
 export const Container = styled(MarginContainer)`

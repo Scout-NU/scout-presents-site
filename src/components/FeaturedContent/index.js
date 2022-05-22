@@ -11,8 +11,8 @@ import {
   TopLeftCollage,
 } from './styled';
 import Button from '../Button';
-import Collage1 from '../../images/explore-collage-1.png';
-import Collage2 from '../../images/explore-collage-2.png';
+import Collage1 from '../../images/page-sprinkles/explore-collage-1.png';
+import Collage2 from '../../images/page-sprinkles/explore-collage-2.png';
 
 const FeaturedContent = () => {
   const query = useStaticQuery(graphql`

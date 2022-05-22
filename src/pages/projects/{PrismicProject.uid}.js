@@ -30,6 +30,7 @@ const ProjectPage = ({ data }) => {
 
   return (
     <Layout>
+      <title>{name}</title>
       <MarginContainer>
         <H1>{name}</H1>
         <Description>{description}</Description>

@@ -9,9 +9,9 @@ import {
 import { H1, P, YELLOW } from '../../styles/styles';
 import Button from '../Button';
 import ProjectCarousel from '../ProjectCarousel';
-import Collage1 from '../../images/project-collage-1.png';
-import Collage2 from '../../images/project-collage-2.png';
-import Collage3 from '../../images/project-collage-3.png';
+import Collage1 from '../../images/page-sprinkles/project-collage-1.png';
+import Collage2 from '../../images/page-sprinkles/project-collage-2.png';
+import Collage3 from '../../images/page-sprinkles/project-collage-3.png';
 
 const sprinkles = [Collage1, Collage2, Collage3];
 

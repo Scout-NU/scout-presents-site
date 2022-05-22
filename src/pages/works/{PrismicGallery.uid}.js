@@ -20,6 +20,7 @@ const GalleryPage = ({ data }) => {
 
   return (
     <Layout>
+      <title>{title}</title>
       <Gallery
         title={title}
         project={project}

@@ -1,5 +1,5 @@
-import React from "react";
-import { H3, H2, StyledLink } from "../../styles/styles";
+import React from 'react';
+import { H3, H2, StyledLink } from '../../styles/styles';
 import {
   FlexContainer,
   responsiveWatch,
@@ -12,10 +12,10 @@ import {
   StyledImage,
   StyledArticleImage,
   ItemContainer,
-} from "./styled";
-import Carousel from "react-multi-carousel";
-import ExploreGallery from "../ExploreGallery";
-import "react-multi-carousel/lib/styles.css";
+} from './styled';
+import Carousel from 'react-multi-carousel';
+import ExploreGallery from '../ExploreGallery';
+import 'react-multi-carousel/lib/styles.css';
 
 const ExploreCarousel = ({ section, id }) => {
   const {
@@ -23,14 +23,16 @@ const ExploreCarousel = ({ section, id }) => {
     uid: sectionuid,
   } = section;
 
+  const CustomLeftArrow = ({ onClick }) => <LeftIcon onClick={onClick} />;
+  const CustomRightArrow = ({ onClick }) => <RightIcon onClick={onClick} />;
+
   const SingleCarousel = () => (
     <Carousel
       responsive={responsiveWatch}
-      customRightArrow={<RightIcon />}
-      customLeftArrow={<LeftIcon />}
+      customRightArrow={<CustomRightArrow />}
+      customLeftArrow={<CustomLeftArrow />}
       infinite={true}
-      autoPlay={false}
-    >
+      shouldResetAutoplay={false}>
       {works.map((work) => {
         const {
           work: {
@@ -41,9 +43,9 @@ const ExploreCarousel = ({ section, id }) => {
           },
         } = work;
         return (
-          <ItemContainer id={id}>
+          <ItemContainer key={uid}>
             <StyledLink to={`../works/${uid}`}>
-              <Work key={uid}>
+              <Work>
                 <StyledImage alt={title.text} src={thumbnail.url} />
                 <H3>{title.text}</H3>
                 <StyledP>{previewText.text}</StyledP>
@@ -58,11 +60,10 @@ const ExploreCarousel = ({ section, id }) => {
   const StackedCarousel = () => (
     <Carousel
       responsive={responsiveRead}
-      customRightArrow={<RightIcon />}
-      customLeftArrow={<LeftIcon />}
+      customRightArrow={<CustomRightArrow />}
+      customLeftArrow={<CustomLeftArrow />}
       infinite={true}
-      autoPlay={false}
-    >
+      shouldResetAutoplay={false}>
       {works.map((work, idx) => {
         const {
           work: {
@@ -87,7 +88,7 @@ const ExploreCarousel = ({ section, id }) => {
             },
           } = works[idx - 1];
           return (
-            <ItemContainer>
+            <ItemContainer key={uid}>
               <StyledLink to={`../works/${uidTop}`}>
                 <Work key={uidTop}>
                   <FlexRow>
@@ -126,9 +127,9 @@ const ExploreCarousel = ({ section, id }) => {
     <FlexContainer id={id}>
       <div>
         <H2 bold>{title.text}</H2>
-        {sectionuid === "read" ? (
+        {sectionuid === 'read' ? (
           <StackedCarousel />
-        ) : sectionuid === "watch" ? (
+        ) : sectionuid === 'watch' ? (
           <SingleCarousel />
         ) : (
           <ExploreGallery works={works} />

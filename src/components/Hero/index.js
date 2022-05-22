@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Frame, MobileFrame, Image, LogoImage } from './styled';
 import images from './images';
-import Logo from '../../images/logo.svg';
+import Logo from '../../images/logos/logo-white.svg';
 
 const Hero = () => {
   return (

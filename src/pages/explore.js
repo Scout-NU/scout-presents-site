@@ -1,10 +1,9 @@
-import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import { MarginContainer } from "../styles/styles";
-import Layout from "../components/Layout";
-import FeaturedContent from "../components/FeaturedContent";
-import ExploreCarousel from "../components/ExploreCarousel";
-import ExploreNav from "../components/ExploreNav";
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import Layout from '../components/Layout';
+import FeaturedContent from '../components/FeaturedContent';
+import ExploreCarousel from '../components/ExploreCarousel';
+import ExploreNav from '../components/ExploreNav';
 
 const Explore = () => {
   const exploreQuery = useStaticQuery(graphql`
@@ -93,6 +92,7 @@ const Explore = () => {
   } = exploreQuery;
   return (
     <Layout>
+      <title>Explore Scout Presents</title>
       <ExploreNav />
       <FeaturedContent />
       {sections.map((section) => {

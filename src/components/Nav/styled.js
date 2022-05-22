@@ -10,6 +10,10 @@ export const StyledNav = styled.nav`
 export const Container = styled(MarginContainer)`
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
+  ${min.desktop} {
+    justify-content: flex-start;
+  }
 `;
 
 export const Links = styled.div`
@@ -32,10 +36,7 @@ export const SubmitContainer = styled.div`
 `;
 
 export const Hamburger = styled.button`
-  flex: 2;
   align-self: center;
-  display: flex;
-  justify-content: end;
   border: 0;
   background-color: transparent;
   color: ${CREAM};

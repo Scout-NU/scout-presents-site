@@ -2,8 +2,8 @@ import * as React from 'react';
 import { H2, GREEN } from '../../styles/styles';
 import { Container, LargeButton, LeftSprinkle, RightSprinkle } from './styled';
 import Button from '../Button';
-import LeftCollage from '../../images/about-collage.png';
-import RightCollage from '../../images/kicks.png';
+import LeftCollage from '../../images/page-sprinkles/about-collage.png';
+import RightCollage from '../../images/page-sprinkles/kicks.png';
 
 const CallOut = ({ label, header }) => (
   <Container>
