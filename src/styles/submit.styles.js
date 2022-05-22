@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { GREEN, P, H3, CREAM, BLUE, YELLOW, BLACK, fonts } from "./styles";
-import { min } from "./breakpoints";
-import Cursor from "../images/cursor-pointer.svg";
-import { ArrowUpCircle } from "react-feather";
+import styled from 'styled-components';
+import { GREEN, P, H3, CREAM, BLUE, YELLOW, BLACK, fonts } from './styles';
+import { min } from './breakpoints';
+import Cursor from '../images/cursor-pointer.svg';
+import { ArrowUpCircle } from 'react-feather';
 
 export const HeaderImage = styled.img`
   width: 100%;
@@ -103,6 +103,7 @@ export const QuestionsSection = styled.div`
   transform: skew(10deg);
   border-radius: 2px;
   margin-top: 2rem;
+  position: relative;
   ${min.tablet} {
     margin-left: 50%;
   }
@@ -114,6 +115,12 @@ export const QuestionsSection = styled.div`
 export const QuestionsText = styled.div`
   transform: skew(-10deg);
   padding: 1rem 3rem 1rem 2rem;
+`;
+
+export const Sprinkle = styled.img`
+  position: absolute;
+  top: -2rem;
+  left: 1rem;
 `;
 
 export const GetInvolvedText = styled.div`
