@@ -104,9 +104,10 @@ const IndexPage = () => {
         <SprinkleTriangle src={Triangle} alt="" />
         <SprinkleSquiggle src={Squiggle} alt="" />
       </BlurbContainer>
-      {projects.map((project) => {
+      {projects.map((project, i) => {
         return (
           <ProjectPreview
+            i={i}
             key={project.project.document.uid}
             project={project.project.document}
           />

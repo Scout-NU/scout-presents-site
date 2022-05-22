@@ -61,6 +61,16 @@ const Explore = () => {
                               title {
                                 text
                               }
+                              images {
+                                image {
+                                  url
+                                  alt
+                                  dimensions {
+                                    height
+                                    width
+                                  }
+                                }
+                              }
                             }
                           }
                         }
@@ -84,9 +94,7 @@ const Explore = () => {
   return (
     <Layout>
       <ExploreNav />
-      <MarginContainer>
-        <FeaturedContent />
-      </MarginContainer>
+      <FeaturedContent />
       {sections.map((section) => {
         return (
           <ExploreCarousel

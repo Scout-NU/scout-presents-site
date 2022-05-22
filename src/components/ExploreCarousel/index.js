@@ -14,6 +14,7 @@ import {
   ItemContainer,
 } from "./styled";
 import Carousel from "react-multi-carousel";
+import ExploreGallery from "../ExploreGallery";
 import "react-multi-carousel/lib/styles.css";
 
 const ExploreCarousel = ({ section, id }) => {
@@ -123,12 +124,16 @@ const ExploreCarousel = ({ section, id }) => {
 
   return (
     <FlexContainer id={id}>
-      {sectionuid === "read" || sectionuid === "watch" ? (
-        <div>
-          <H2 bold>{title.text}</H2>
-          {sectionuid === "read" ? <StackedCarousel /> : <SingleCarousel />}
-        </div>
-      ) : null}
+      <div>
+        <H2 bold>{title.text}</H2>
+        {sectionuid === "read" ? (
+          <StackedCarousel />
+        ) : sectionuid === "watch" ? (
+          <SingleCarousel />
+        ) : (
+          <ExploreGallery works={works} />
+        )}
+      </div>
     </FlexContainer>
   );
 };
