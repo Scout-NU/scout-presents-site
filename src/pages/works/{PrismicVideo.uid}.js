@@ -19,6 +19,7 @@ const VideoPage = ({ data }) => {
 
   return (
     <Layout>
+      <title>{title}</title>
       <Video
         title={title}
         embed={embed}

@@ -9,7 +9,7 @@ import {
 } from './styled';
 import Button from '../Button';
 import { Menu } from 'react-feather';
-import Logo from '../../images/logo-white.svg';
+import Logo from '../../images/logos/logo-white.svg';
 import MobileMenu from '../MobileMenu';
 
 const Nav = () => {

@@ -98,6 +98,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
+      <title>Scout Presents</title>
       <Hero heading={mainHeading.text} blurb={blurb.text} />
       <BlurbContainer>
         <Blurb>{blurb.text}</Blurb>

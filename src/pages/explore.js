@@ -92,6 +92,7 @@ const Explore = () => {
   } = exploreQuery;
   return (
     <Layout>
+      <title>Explore Scout Presents</title>
       <ExploreNav />
       <FeaturedContent />
       {sections.map((section) => {

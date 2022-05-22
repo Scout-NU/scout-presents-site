@@ -40,6 +40,8 @@ export const AboutTitle = styled.div`
 export const AboutImages = styled.img`
   width: 100%;
   margin-bottom: 8.3%;
+  aspect-ratio: 1;
+  object-fit: cover;
 
   ${min.tablet} {
     margin-left: 25%;
@@ -55,6 +57,8 @@ export const AboutImages = styled.img`
 export const WhoImages = styled.img`
   width: 100%;
   margin-bottom: 8.3%;
+  aspect-ratio: 1;
+  object-fit: cover;
 
   ${min.desktop} {
     margin-left: 8.3%;

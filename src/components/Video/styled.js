@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BLUE, MarginContainer, P, H2, H3 } from '../../styles/styles';
+import { BLUE, MarginContainer, P, H2, H3, CREAM } from '../../styles/styles';
 import { min } from '../../styles/breakpoints';
 
 export const Container = styled(MarginContainer)`
@@ -64,4 +64,7 @@ export const StyledP = styled(P)`
   display: inline-block;
   width: 100%;
   margin-block: 0;
+  a {
+    color: ${CREAM};
+  }
 `;

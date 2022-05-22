@@ -16,8 +16,8 @@ import {
   OverflowContainer,
 } from './styled';
 import Button from '../Button';
-import SingleWorksTopCollage from '../../images/single-works-collage.png';
-import SingleWorksBottomCollage from '../../images/single-works-bottom-collage.png';
+import SingleWorksTopCollage from '../../images/page-sprinkles/single-works-collage.png';
+import SingleWorksBottomCollage from '../../images/page-sprinkles/single-works-bottom-collage.png';
 
 const SingleWorks = () => {
   const query = useStaticQuery(graphql`
@@ -85,6 +85,9 @@ const SingleWorks = () => {
     },
   } = query;
 
+  const CustomLeftArrow = ({ onClick }) => <LeftIcon onClick={onClick} />;
+  const CustomRightArrow = ({ onClick }) => <RightIcon onClick={onClick} />;
+
   return (
     <OverflowContainer>
       <Container>
@@ -96,8 +99,8 @@ const SingleWorks = () => {
           responsive={responsive}
           infinite
           shouldResetAutoplay={false}
-          customLeftArrow={<LeftIcon />}
-          customRightArrow={<RightIcon />}>
+          customLeftArrow={<CustomLeftArrow />}
+          customRightArrow={<CustomRightArrow />}>
           {works.map((work) => {
             const {
               uid,
@@ -109,7 +112,7 @@ const SingleWorks = () => {
               },
             } = work.work;
             return (
-              <Slide>
+              <Slide key={uid}>
                 <Link to={`/works/${uid}`}>
                   <Thumbnail src={url} alt={alt} />
                 </Link>

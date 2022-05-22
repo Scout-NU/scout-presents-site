@@ -107,6 +107,7 @@ const Submit = () => {
 
   return (
     <Layout>
+      <title>Submit Work</title>
       <HeaderImage src={headerImage.url} alt={headerImage.alt} />
       <MarginContainer>
         <ContentContainer>

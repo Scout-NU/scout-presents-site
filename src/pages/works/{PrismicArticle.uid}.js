@@ -1,7 +1,7 @@
-import * as React from "react";
-import { graphql } from "gatsby";
-import Layout from "../../components/Layout";
-import Article from "../../components/Article";
+import * as React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../../components/Layout';
+import Article from '../../components/Article';
 
 const ArticlePage = ({ data }) => {
   if (!data) return null;
@@ -19,6 +19,7 @@ const ArticlePage = ({ data }) => {
 
   return (
     <Layout>
+      <title>{title}</title>
       <Article
         title={title}
         content={articleContent}

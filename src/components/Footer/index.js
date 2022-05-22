@@ -11,7 +11,7 @@ import {
   HeartIcon,
 } from './styled';
 import { A } from '../../styles/styles';
-import ScoutLogo from '../../images/scout-logo.svg';
+import ScoutLogo from '../../images/logos/scout-logo.svg';
 import Button from '../Button';
 import SocialLinks from './SocialLinks';
 

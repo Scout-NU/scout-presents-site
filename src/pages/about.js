@@ -1,7 +1,7 @@
-import { graphql, useStaticQuery } from "gatsby";
-import * as React from "react";
-import Layout from "../components/Layout";
-import CallOut from "../components/Callout";
+import { graphql, useStaticQuery } from 'gatsby';
+import * as React from 'react';
+import Layout from '../components/Layout';
+import CallOut from '../components/Callout';
 import {
   AboutDescription,
   WhoImages,
@@ -9,9 +9,9 @@ import {
   Section,
   ReverseSection,
   AboutImages,
-} from "../styles/about.styles";
-import { PrismicRichText } from "@prismicio/react";
-import { H1, H2, MarginContainer } from "../styles/styles";
+} from '../styles/about.styles';
+import { PrismicRichText } from '@prismicio/react';
+import { H1, H2, MarginContainer } from '../styles/styles';
 
 const About = () => {
   const aboutQuery = useStaticQuery(graphql`
@@ -70,6 +70,7 @@ const About = () => {
 
   return (
     <Layout>
+      <title>About Scout Presents</title>
       <MarginContainer>
         <AboutTitle>
           <H1>{mainHeading.text}</H1>
