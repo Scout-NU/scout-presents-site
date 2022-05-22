@@ -150,6 +150,7 @@ const Submit = () => {
               name="Submit Work Form"
               method="POST"
               data-netlify="true"
+              enctype="multipart/form-data"
               action="/submit"
             >
               <input type="hidden" name="form-name" value="Submit Work Form" />
