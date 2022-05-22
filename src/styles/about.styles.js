@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { min } from "./breakpoints";
-import { fonts } from "./styles";
+import styled from 'styled-components';
+import { min } from './breakpoints';
+import { fonts } from './styles';
 
 export const Section = styled.div`
   display: flex;
@@ -15,8 +15,13 @@ export const Section = styled.div`
 export const ReverseSection = styled.div`
   display: flex;
   flex-direction: column-reverse;
+  padding-bottom: 4rem;
+  ${min.tablet} {
+    padding-bottom: 6rem;
+  }
   ${min.desktop} {
     flex-direction: row;
+    padding-bottom: 8rem;
   }
 `;
 
