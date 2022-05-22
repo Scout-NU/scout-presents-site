@@ -3,6 +3,15 @@ import { BLACK, H3, CREAM, PINK, PointerStyles } from "../../styles/styles";
 import { min } from "../../styles/breakpoints";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
+export const Bar = styled.div`
+  background-color: ${BLACK};
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 1rem 0;
+`;
+
 export const StyledLink = styled.div`
   white-space: nowrap;
   height: 3rem;
@@ -33,18 +42,14 @@ export const RightLink = styled(StyledLink)`
 export const LinkContainer = styled.div`
   display: flex;
   flex-direction: row;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  margin-left: 5%;
+
+  margin: auto;
   width: 90%;
   ${min.tablet} {
-    margin-left: 25%;
     width: 50%;
   }
   ${min.desktop} {
     width: 33.33%;
-    margin-left: 33.33%;
   }
 `;
 
