@@ -1,8 +1,8 @@
-import * as React from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import Layout from "../components/Layout";
-import { H2, P, H3, YELLOW, MarginContainer } from "../styles/styles";
-import { PrismicRichText } from "@prismicio/react";
+import * as React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import Layout from '../components/Layout';
+import { H2, P, H3, YELLOW, MarginContainer } from '../styles/styles';
+import { PrismicRichText } from '@prismicio/react';
 import {
   HeaderImage,
   GetInvolvedSection,
@@ -22,8 +22,10 @@ import {
   UploadIcon,
   PaddedInput,
   SubmitContainer,
-} from "../styles/submit.styles";
-import Button from "../components/Button";
+  Sprinkle,
+} from '../styles/submit.styles';
+import Button from '../components/Button';
+import Triangle from '../images/sprinkles/Triangle-red.svg';
 
 const Submit = () => {
   const submitQuery = useStaticQuery(graphql`
@@ -121,6 +123,7 @@ const Submit = () => {
               </GetInvolvedText>
             </GetInvolvedSection>
             <QuestionsSection>
+              <Sprinkle src={Triangle} alt="" />
               <QuestionsText>
                 <PrismicRichText
                   field={questions.richText}
@@ -146,8 +149,7 @@ const Submit = () => {
               name="Submit Work Form"
               method="POST"
               data-netlify="true"
-              action="/submit"
-            >
+              action="/submit">
               <input type="hidden" name="form-name" value="Submit Work Form" />
               <FormRow>
                 <PaddedInput
