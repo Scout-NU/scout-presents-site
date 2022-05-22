@@ -1,8 +1,10 @@
-import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import Layout from '../components/Layout';
-import FeaturedContent from '../components/FeaturedContent';
-import ExploreCarousel from '../components/ExploreCarousel';
+import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import { MarginContainer } from "../styles/styles";
+import Layout from "../components/Layout";
+import FeaturedContent from "../components/FeaturedContent";
+import ExploreCarousel from "../components/ExploreCarousel";
+import ExploreNav from "../components/ExploreNav";
 
 const Explore = () => {
   const exploreQuery = useStaticQuery(graphql`
@@ -89,13 +91,14 @@ const Explore = () => {
       data: { sections },
     },
   } = exploreQuery;
-
   return (
     <Layout>
+      <ExploreNav />
       <FeaturedContent />
       {sections.map((section) => {
         return (
           <ExploreCarousel
+            id={section.section.document.uid}
             key={section.section.document.id}
             section={section.section.document}
           />
